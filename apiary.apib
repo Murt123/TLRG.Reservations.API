@@ -1,0 +1,661 @@
+HOST: http://api.laterooms.com/
+
+--- TLRG Reservations API ---
+
+--
+Create Enquiry
+--
+
+Make an enquiry with rooms from rates api response
+POST /Enquiry
+> Content-Type: application/json
+{
+    "Currency": "GBP",
+    "HotelId": 84021,
+    "Language": "en",
+    "Rooms": [ {
+        "Id": 444822,
+        "RoomCode": "EXEC",
+        "RateCode": "235851",
+        "SpecialOfferId": 247070,
+        "Occupancy": {
+            "Adults": 2,
+            "Children": 1
+        },
+        "StayDetails": { 
+            "ArrivalDate": "2013-10-26",
+            "Nights": 2 
+        }
+    },
+    {
+        "Id": 444822,
+        "RoomCode": "EXEC",
+        "RateCode": "Default",
+        "SpecialOfferId": 0,
+        "Occupancy": {
+            "Adults": 2,
+            "Children": 0
+        },
+        "StayDetails": { 
+            "ArrivalDate": "2013-10-26",
+            "Nights": 2 
+        }
+    },
+    {
+        "Id": 449823,
+        "RoomCode": "EXEC",
+        "RateCode": "Default",
+        "SpecialOfferId": 0,
+        "Occupancy": {
+            "Adults": 2,
+            "Children": 0
+        },
+        "StayDetails": { 
+            "ArrivalDate": "2013-10-26",
+            "Nights": 2 
+        }
+    } ]
+}
+< 201
+< Content-Type: application/json
+{
+    "Id":168095702,
+    "LCode":"L168095702",
+    "Guid":"eeb4b271-8962-428a-8d68-a7b91bd451e2",
+    "Created":"2013-10-04T15:02:33.813Z",
+    "TotalCostToStayInUserCurrency": {
+        "CurrencyIso":"GBP",
+        "Amount":457.14
+    },
+    "TotalCostToStayInHotelCurrency": {
+        "CurrencyIso":"GBP",
+        "Amount":16400
+    },
+    "PriceBreakdown": { 
+        "TaxPercentage": 10,
+        "ServiceChargePercentage": 5,
+        "PriceInHotelCurrency": {
+            "BasePrice": 100.00,
+            "Tax": 10.00,
+            "ServiceCharge ": 5.00,
+            "Total": 115.00,
+            "Currency": "USD"
+        },
+        "PriceInUserCurrency": {
+            "BasePrice": 100.00,
+            "Tax": 10.00,
+            "ServiceCharge ": 5.00,
+            "Total": 115.00,
+            "Currency": "GBP"
+        }
+    },
+    "NoOfRooms":6,
+    "Rooms": [ {
+        "Id":446722,
+        "Occupancy": {
+            "Adults":2
+        },
+        "StayDetails": {
+            "ArrivalDate":"2013-10-26T00:00:00.000+0000",
+            "Nights":2
+        },
+        "BreakfastIncluded":true,
+        "DinnerIncluded":false,
+        "CostToStayInUsersCurrency":112.33,
+        "CostToStayInHotelsCurrency":112.33,
+        "RateCode":"Default",
+        "RoomCode":"EXEC",
+        "AllowBedTypeChoice":false,
+        "CancellationType": "FirstNightStay"
+    },
+    { 
+        "Id":444822,
+        "Occupancy": {
+            "Adults":2,
+            "Children":1
+        },
+        "StayDetails": {
+            "ArrivalDate":"2013-10-26T00:00:00.000+0000",
+            "Nights":2
+        },
+        "BreakfastIncluded":true,
+        "DinnerIncluded":false,
+        "CostToStayInUsersCurrency":112.48,
+        "CostToStayInHotelsCurrency":112.48,
+        "RateCode":"235851",
+        "RoomCode":"EXEC",
+        "SpecialOfferId":247070,
+        "AllowBedTypeChoice":false,
+        "CancellationType": "FirstNightStay"
+    },
+    {
+        "Id":449822,
+        "Occupancy": {
+            "Adults":2,
+            "Children":1
+        },
+        "StayDetails": {
+            "ArrivalDate":"2013-10-26T00:00:00.000+0000",
+            "Nights":2
+        },
+        "BreakfastIncluded":false,
+        "DinnerIncluded":false,
+        "CostToStayInUsersCurrency":132.33,
+        "CostToStayInHotelsCurrency":132.33,
+        "RateCode":"Default",
+        "RoomCode":"EXEC",
+        "AllowBedTypeChoice":true,
+        "CancellationType": "FirstNightStay"
+    },
+    {
+        "Id":449822,
+        "Occupancy": {
+            "Adults":2
+        },
+        "StayDetails": {
+            "ArrivalDate":"2013-10-26T00:00:00.000+0000",
+            "Nights":2
+        },
+        "BreakfastIncluded":false,
+        "DinnerIncluded":false,
+        "CostToStayInUsersCurrency":172.33,
+        "CostToStayInHotelsCurrency":172.33,
+        "RateCode":"Default",
+        "RoomCode":"EXEC",
+        "AllowBedTypeChoice":true,
+        "CancellationType": "FirstNightStay"
+    },
+    {
+        "Id":449823,
+        "Occupancy": {
+            "Adults":2
+        },
+        "StayDetails": {
+            "ArrivalDate":"2013-10-26T00:00:00.000+0000",
+            "Nights":2
+        },
+        "BreakfastIncluded":true,
+        "DinnerIncluded":false,
+        "CostToStayInUsersCurrency":172.33,
+        "CostToStayInHotelsCurrency":172.33,
+        "RateCode":"Default",
+        "RoomCode":"EXEC",
+        "AllowBedTypeChoice":true,
+        "CancellationType": "FirstNightStay"
+    },
+    {
+        "Id":443652,
+        "Occupancy":{
+            "Adults":1
+        },
+        "StayDetails":{
+            "ArrivalDate":"2013-10-26T00:00:00.000+0000",
+            "Nights":2
+        },
+        "BreakfastIncluded":false,
+        "DinnerIncluded":false,
+        "CostToStayInUsersCurrency":102.33,
+        "CostToStayInHotelsCurrency":102.33,
+        "RateCode":"Default",
+        "RoomCode":"EXEC",
+        "AllowBedTypeChoice":false,
+            "CancellationType": "FirstNightStay"
+        } ],
+    "Nights":2,
+    "ArrivalDate":"2013-10-26T00:00:00",
+    "ResponseTime":186.01860000000002,
+    "FormattedResponseTime":"186.0186ms",
+    "BookableOnline":true
+}
+
+--
+Get Enquiry
+--
+
+Retrieve an enquiry
+GET /Enquiry/150956396
+> Content-Type: application/json
+< 200
+< Content-Type: application/json
+{"Id":150956396,"LCode":"L150956396","Guid":"0fd691d1-77c2-49a4-9a24-d261d0172753","Created":"2013-02-15T02:38:19Z","TotalCostToStayInUserCurrency":{"CurrencyIso":"MYR","Amount":407.00},"TotalCostToStayInHotelCurrency":{"CurrencyIso":"MYR","Amount":407.00},"NoOfRooms":1,"Rooms":[{"Id":172044548,"Occupancy":{"Adults":2,"Children":0},"StayDetails":{"ArrivalDate":"2013-02-17T00:00:00.000+0000","Nights":1},"BreakfastIncluded":true,"DinnerIncluded":false,"CostToStayInUsersCurrency":407.00,"CostToStayInHotelsCurrency":407.00, "RateCode":"Default", "RoomCode":null}],"Nights":1,"ArrivalDate":"2013-02-17T00:00:00","ResponseTime":122.0122,"FormattedResponseTime":"122.0122ms","BookableOnline":true}
+
+Get enquiry with incorrect *id*
+GET /Enquiry/2352930
+> Content-Type: application/json
+< 404
+< Content-Type: application/json 
+{
+    "error":
+    {
+        "code": "5002",
+        "message": "Enquiry ID not found."
+    }
+}
+
+--
+Create Booking
+--
+
+Make booking a successful booking for 1 room
+
+* `{CurrencyIso}` must be a valid `3 digit ISO Currency Code` e.g. Pound Sterling is _GBP_
+* `{Language}` must be a valid `2 digit ISO Language Code` e.g. English is _EN_
+* `{StayType}` must be either `Business` or `Leisure`
+* `{ChannelId}` is the unique identifier for the calling app version
+* `{CountryISO}` must be a valid `3 digit ISO Country Code` e.g. United Kingdom is GBR
+* `{BedType}` can be one of the following:
+    * `t` : Twin
+    * `d` : Double
+    * `Any other value` : Unspecified
+* `{CheckInTime}` should be in the format `hh:mm`
+* `{CardTypeId}` can be one of the following (**actual list dependant on cards accepted by Hotel**)
+    1. `{Visa}`
+    * `{Mastercard}`
+    * `{EuroCard}`
+    * `{American Express}`
+    * `{Switch/Maestro}`
+    * `{Diners Club}`
+    * `{Visa Electron}`
+    * `{Unused ID - Do not use}`
+    * `{JCB}`
+    * `{Visa Debit}`
+* `{StartMonth}` is optional but must be in format `MM`
+* `{StartYear}` is optional but must be in format `YYYY`
+* `{EndMonth}` must be in format `MM`
+* `{EndYear}` must be in format `YYYY`
+* `{TokenisedCardNumber}` & `{TokenisedSecurityCode}` must be valid IPG tokens
+* `{SaveCard}` will store the card for use with future bookings
+
+POST /Booking
+> Content-Type: application/json
+{
+    "CurrencyIso": "GBP",
+	"HotelId": 158580,
+	"Language": "EN",
+	"StayType": "Leisure",
+	"ArrivalDate": "2013-09-26",
+	"ChannelId": 1,
+	"Booker": {
+		"Title": "Mr",
+		"FirstName": "Dave",
+		"Surname": "Example",
+		"Email": "example@example.com",
+		"Telephone": "0777777777",
+		"Address": {
+			"Address1": "1, Street",
+			"Address2": "Someplace",
+			"Town": "Manchester",
+			"Postcode": "M3 3PP",
+			"CountryIso": "GBR"
+		}
+	},
+	"Rooms":[ {
+			"Id": 1189779,
+			"BedType": "d",
+			"CheckInTime": "11:00",
+            "RoomCode": "Default",
+            "RateCode": "",
+            "SpecialOfferId": 0,
+			"Occupancy": { 
+				"Adults": 2, 
+				"Children": 0 
+				},
+			"StayDetails": { 
+				"ArrivalDate": "2013-09-26", 
+				"Nights": 1 
+				},
+			"SpecialRequests": "",
+            "CostToStayInHotelCurrency":{
+                "CurrencyIso":"GBP",
+                "Amount":251.00
+            },
+			"Guest": {
+				"Title": "Mr",
+				"FirstName": "Dave",
+				"Surname": "Example",
+				"Email": "example@example.com
+                "GuestIsBooker": true
+			},
+			"BreakfastDetails": {
+				"BreakfastIncluded": false,
+				"BreakfastAdded": true,
+				"BreakfastId": 1234
+			}			
+		} ],
+	"PaymentDetails" : {
+		"CardTypeId": 2,
+		"CardHolderName": "Mr D Example",
+		"StartMonth": 1,
+		"StartYear": 2012,
+		"EndMonth": 5,
+		"EndYear": 2015,
+		"IssueNumber": 2,
+		"TokenisedCardNumber": "8369546923851111",
+		"TokenisedSecurityCode": "1577922641260750",
+        "SaveCard": true
+	}
+}
+< 201
+< Content-Type: application/json
+{
+    "Booking": {
+        "Id":2352937,
+        "Reference":"2352937R",
+        "HotelName":"The Light ApartHotel Manchester",
+        "HotelAddress":"20 Church Street, Manchester, M4 1PN",
+        "ArrivalDate":"2013-09-26T00:00:00.000+0000",
+        "NoOfNights":1,
+        "NoOfRooms":1,
+        "TotalCostToStayInUserCurrency":{
+            "CurrencyIso":"GBP",
+            "Amount":115.00
+        },
+        "TotalCostToStayInHotelCurrency":{
+            "CurrencyIso":"USD",
+            "Amount":23.00
+        },
+        "PriceBreakdown": { 
+            "TaxPercentage": 10,
+            "ServiceChargePercentage": 5,
+            "PriceInHotelCurrency": {
+                "BasePrice": 200.00,
+                "Tax": 20.00,
+                "ServiceCharge ": 10.00,
+                "Total": 230.00,
+                "Currency": "USD"
+            },
+            "PriceInUserCurrency": {
+                "BasePrice": 100.00,
+                "Tax": 10.00,
+                "ServiceCharge ": 5.00,
+                "Total": 115.00,
+                "Currency": "GBP"
+            }
+        },
+        "Rooms":[ {
+            "RoomId": 1189779,
+            "RoomType": "Standard Double Room sleeps 2",
+            "TotalRoomPrice": {
+                "CurrencyIso": "GBP",
+                "Amount": 251.00
+            },
+        } ]
+    }
+}
+
+--
+Get Booking
+--
+
+Get booking with a correct *booking reference*
+GET /Booking/{0}
+> Content-Type: application/json
+< 200
+< Content-Type: application/json 
+{
+    "Reference": "243537R",
+    "HotelName": "Kildonan Lodge Hotel",
+    "HotelAddress": "27 Address Place",
+    "HotelCity": "Edinburgh",
+    "HotelPostcode": "EH16 5PE",
+    "ArrivalDate": "2014-02-07T00:00:00.000+0000",
+    "NoOfRooms": 2,
+    "TotalAmount": {
+        "CurrencyIso": "GBP",
+        "Amount": 350
+    },
+    "PriceBreakdown": { 
+        "TaxPercentage": 10,
+        "ServiceChargePercentage": 5,
+        "PriceInHotelCurrency": {
+            "BasePrice": 100.00,
+            "Tax": 10.00,
+            "ServiceCharge ": 5.00,
+            "Total": 115.00,
+            "Currency": "USD"
+        },
+        "PriceInUserCurrency": {
+            "BasePrice": 100.00,
+            "Tax": 10.00,
+            "ServiceCharge ": 5.00,
+            "Total": 115.00,
+            "Currency": "GBP"
+        }
+    },
+    "Rooms": [ {
+        "Adults": 2,
+        "Children": 0,
+        "Breakfast": true,
+        "RoomType": "Standard",
+        "TotalPrice": {
+            "CurrencyIso": "GBP",
+            "Amount": 100
+        },
+        "TotalNights": 2
+    },
+    {
+        "Adults": 2,
+        "Children": 0,
+        "Breakfast": true,
+        "RoomType": "Standard",
+        "TotalPrice": {
+            "CurrencyIso": "GBP",
+            "Amount": 250
+        },
+        "TotalNights": 2
+    } ]
+}
+
+Get booking with incorrect *id*
+GET /Booking/2352930
+> Content-Type: application/json
+< 404
+< Content-Type: application/json 
+{
+    "error":
+    {
+        "code": "5202",
+        "message": "Booking ID not found."
+    }
+}
+
+--
+Get Token Session
+--
+
+Get Session to use with IPG Tokenisation service
+GET /CreditCard/TokenisationSession/
+< 200
+< Content-Type: application/json 
+{
+    "SessionId": "NOvgYN0iXpUqepDrhRPdXLVSX0QU1MfpGxs6H5cVXwChyH1FZyRsWPeujA9InOoS"
+}
+
+--
+Get Cards 
+--
+
+Get Accepted Cards by Hotel where advance payment is true
+GET /CreditCard/GetCards/151278?AdvancedPayment=true
+< 200
+< Content-Type: application/json 
+{
+    "CreditCards":[ {"Id":1, "Name":"Visa/Delta", "ServiceCharge":3.50, "cvcDigits":3, "startDate":false, "issueNumber":false},
+                    {"Id":2, "Name":"Mastercard", "ServiceCharge":3.50, "cvcDigits":3, "startDate":false, "issueNumber":false},
+                    {"Id":4, "Name":"American Express", "ServiceCharge":4.50, "cvcDigits":4, "startDate":false, "issueNumber":false},
+                    {"Id":6, "Name":"Diners Club", "ServiceCharge":4.50, "cvcDigits":3, "startDate":false, "issueNumber":false},
+                    {"Id":7, "Name":"Visa Electron", "cvcDigits":3, "startDate":false, "issueNumber":false},
+                    {"Id":10, "Name":"Visa Debit", "cvcDigits":3, "startDate":false, "issueNumber":false}
+                  ]
+}
+
+--
+Get Booking List 
+--
+
+Get list of bookings with correct user id
+
+
+GET /BookingList/?Page=1&PageSize=10
+> TLRG-SID: afe0c700-0eff-11e3-b5b3-9f598a0c9d46
+< 200
+< Content-Type: application/json 
+{
+    "Pages": 1,
+    "TotalCount": 3,
+    "PastCount": 3,
+    "FutureCount": 0,
+    "Bookings": [ {
+        "Reference": "23668776R",
+        "HotelId": 1234,
+        "HotelName": "Park Plaza Westminster Bridge",
+        "HotelAddress": "200 Westminster Bridge Road",
+        "HotelCity": "London",
+        "HotelPostcode": "SE1 7UT",
+        "GeoPoint": {
+                "Lat": 53.25284,
+                "Long": -1.9204
+            },
+        "ArrivalDate": "2013-10-14T00:00:00.000+0000",
+        "NoOfRooms": 1,
+        "Cancelled": false,
+        "TotalAmount": {
+            "CurrencyIso": "GBP",
+            "Amount": 187.2
+        },
+        "PriceBreakdown": { 
+            "TaxPercentage": 10,
+            "ServiceChargePercentage": 5,
+            "PriceInHotelCurrency": {
+                "BasePrice": 100.00,
+                "Tax": 10.00,
+                "ServiceCharge ": 5.00,
+                "Total": 115.00,
+                "Currency": "USD"
+            },
+            "PriceInUserCurrency": {
+                "BasePrice": 100.00,
+                "Tax": 10.00,
+                "ServiceCharge ": 5.00,
+                "Total": 115.00,
+                "Currency": "GBP"
+            }
+        },
+        "Rooms": [ {
+            "Adults": 2,
+            "Children": 0,
+            "Breakfast": false,
+            "RoomType": "Superior",
+            "TotalPrice": {
+                "CurrencyIso": "GBP",
+                "Amount": 187.2
+            },
+            "TotalNights": 1
+        } ]
+    },
+    {
+        "Reference": "8522065R",
+        "HotelName": "Mint Hotel Westminster ( Old Acc)",
+        "HotelAddress": "30 John Islip Street",
+        "HotelCity": "London",
+        "HotelPostcode": "SW1P 4DD",
+        "ArrivalDate": "2010-03-06T00:00:00.000+0000",
+        "NoOfRooms": 1,
+        "Cancelled": false,
+        "TotalAmount": {
+            "CurrencyIso": "GBP",
+            "Amount": 92.82
+        },
+        "PriceBreakdown": { 
+            "TaxPercentage": 10,
+            "ServiceChargePercentage": 5,
+            "PriceInHotelCurrency": {
+                "BasePrice": 100.00,
+                "Tax": 10.00,
+                "ServiceCharge ": 5.00,
+                "Total": 115.00,
+                "Currency": "USD"
+            },
+            "PriceInUserCurrency": {
+                "BasePrice": 100.00,
+                "Tax": 10.00,
+                "ServiceCharge ": 5.00,
+                "Total": 115.00,
+                "Currency": "GBP"
+            }
+        },
+        "Rooms": [ {
+            "Adults": 2,
+            "Children": 0,
+            "Breakfast": false,
+            "RoomType": "Standard",
+            "TotalPrice": {
+                "CurrencyIso": "GBP",
+                "Amount": 92.82
+            },
+            "TotalNights": 1
+        } ]
+    },
+    {
+        "Reference": "5018282R",
+        "HotelName": "Pilgrim Hotel",
+        "HotelAddress": "Much Birch\nWye Valley",
+        "HotelCity": "Herefordshire",
+        "HotelPostcode": "HR2 8HJ",
+        "ArrivalDate": "2008-10-24T00:00:00.000+0000",
+        "NoOfRooms": 1,
+        "Cancelled": false,
+        "TotalAmount": {
+            "CurrencyIso": "GBP",
+            "Amount": 75
+        },
+        "PriceBreakdown": { 
+            "TaxPercentage": 10,
+            "ServiceChargePercentage": 5,
+            "PriceInHotelCurrency": {
+                "BasePrice": 100.00,
+                "Tax": 10.00,
+                "ServiceCharge ": 5.00,
+                "Total": 115.00,
+                "Currency": "USD"
+            },
+            "PriceInUserCurrency": {
+                "BasePrice": 100.00,
+                "Tax": 10.00,
+                "ServiceCharge ": 5.00,
+                "Total": 115.00,
+                "Currency": "GBP"
+            }
+        },
+        "Rooms": [ {
+            "Adults": 2,
+            "Children": 0,
+            "Breakfast": false,
+            "RoomType": "Standard",
+            "TotalPrice": {
+                "CurrencyIso": "GBP",
+                "Amount": 75
+            },
+            "TotalNights": 1
+        } ]
+    }
+}
+
+--
+Empty Booking List 
+--
+
+Get list of bookings for a user that has no bookings
+GET /BookingList/?Page=1&PageSize=50
+> TLRG-SID: afe0c700-0eff-11e3-b5b3-9f598a0c9d46
+< 200
+< Content-Type: application/json 
+{
+    {
+        "Pages": 0,
+        "TotalCount": 0,
+        "PastCount": 0,
+        "FutureCount": 0,
+        "Bookings": []
+    }
+}
