@@ -13,11 +13,13 @@ POST /Enquiry
     "Currency": "GBP",
     "HotelId": 84021,
     "Language": "en",
+    "AffiliateId": 142,
     "Rooms": [ {
         "Id": 444822,
         "RoomCode": "EXEC",
         "RateCode": "235851",
         "SpecialOfferId": 247070,
+        "HotelBreakfastId": 315
         "Occupancy": {
             "Adults": 2,
             "Children": 1
@@ -275,6 +277,7 @@ POST /Booking
 	"StayType": "Leisure",
 	"ArrivalDate": "2013-09-26",
 	"ChannelId": 1,
+	"EnquiryGuid": "9f4ad095-8441-45c2-acde-01c405ff5b0f",
 	"Booker": {
 		"Title": "Mr",
 		"FirstName": "Dave",
@@ -287,7 +290,8 @@ POST /Booking
 			"Town": "Manchester",
 			"Postcode": "M3 3PP",
 			"CountryIso": "GBR"
-		}
+		},
+		OptInDealsByEmail": false
 	},
 	"Rooms":[ {
 			"Id": 1189779,
@@ -296,6 +300,7 @@ POST /Booking
             "RoomCode": "Default",
             "RateCode": "",
             "SpecialOfferId": 0,
+            "SmokingRequested": false,
 			"Occupancy": { 
 				"Adults": 2, 
 				"Children": 0 
@@ -320,9 +325,14 @@ POST /Booking
 				"BreakfastIncluded": false,
 				"BreakfastAdded": true,
 				"BreakfastId": 1234
-			}			
+			},
+			"PriceAmendment": {
+			    "Amount": -10.91
+			    "ReasonId": 2
+			}
 		} ],
 	"PaymentDetails" : {
+	    "CardId": 0,
 		"CardTypeId": 2,
 		"CardHolderName": "Mr D Example",
 		"StartMonth": 1,
@@ -332,7 +342,22 @@ POST /Booking
 		"IssueNumber": 2,
 		"TokenisedCardNumber": "8369546923851111",
 		"TokenisedSecurityCode": "1577922641260750",
-        "SaveCard": true
+        "SaveCard": true,
+        "IsFastTrackCard": false,
+        "IsCorporateCard": false,
+	},
+	"ContactCentre": {
+	    "AgentId": 147,
+	    "BookingGuid": "a9ab07bd-f4ba-4cbc-8ea0-ce8e154e8b26",
+	    "BookableOnline": true,
+	    "CustomerSmsRequested": true,
+	    "CustomerSmsNumber": "44 747 123456",
+	    "UseConferencing": false
+	},
+	"BusinessStay": {
+	    "CostCentreNumber": "123ABC",
+	    "TravelReasonId": 0,
+	    "JobReferenceNumber": "123ABC"
 	}
 }
 < 201
