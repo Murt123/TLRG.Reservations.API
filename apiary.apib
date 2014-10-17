@@ -684,3 +684,36 @@ GET /BookingList/?Page=1&PageSize=50
         "Bookings": []
     }
 }
+
+--
+Resend communication
+--
+
+Resends a specified communication type for a booking
+
+* `BookingId` must be a valid booking id
+* `CommunicationType` the type of communication to send; one of
+    * `confirmation`
+    * `cancellation`
+* `Medium` the communication channel to use; one of
+    * `email`
+    * `sms`
+    * `fax`
+* `Recipient` the target for the communication
+    * `hotel`
+    * `guest`
+    * `booker`
+
+POST /communications/resend
+> Content-Type: application/json
+{
+  "BookingId": 27078087,
+  "CommunicationType": "cancellation",
+  "Medium": "email",
+  "Recipient": "hotel"
+}
+< 200
+< Content-Type: application/json
+{
+    "success" : true
+}
