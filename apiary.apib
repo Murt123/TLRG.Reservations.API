@@ -6,7 +6,7 @@ HOST: http://api.laterooms.com/
 Create Enquiry
 --
 
-Make an enquiry with rooms from rates api response
+Create an enquiry with rooms from rates api response
 POST /Enquiry
 > Content-Type: application/json
 {
@@ -95,7 +95,8 @@ POST /Enquiry
     "Rooms": [ {
         "Id":446722,
         "Occupancy": {
-            "Adults":2
+            "Adults":2,
+            "Children":1
         },
         "StayDetails": {
             "ArrivalDate":"2013-10-26T00:00:00.000+0000",
@@ -126,7 +127,6 @@ POST /Enquiry
         "CostToStayInHotelsCurrency":112.48,
         "RateCode":"235851",
         "RoomCode":"EXEC",
-        "SpecialOfferId":247070,
         "AllowBedTypeChoice":false,
         "CancellationType": "FirstNightStay"
     },
@@ -666,12 +666,8 @@ GET /BookingList/?Page=1&PageSize=10
     }
 }
 
---
-Empty Booking List 
---
-
 Get list of bookings for a user that has no bookings
-GET /BookingList/?Page=1&PageSize=50
+GET /BookingList/?Page=1&PageSize=10
 > TLRG-SID: afe0c700-0eff-11e3-b5b3-9f598a0c9d46
 < 200
 < Content-Type: application/json 
