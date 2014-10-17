@@ -214,16 +214,15 @@ POST /Enquiry
 Get Enquiry
 --
 
-Retrieve an enquiry
-GET /Enquiry/150956396
-> Content-Type: application/json
+Retrieve an enquiry by identifier
+* `{EnquiryId}` is a valid enquiry identifier
+GET /Enquiry/{EnquiryId}
 < 200
 < Content-Type: application/json
 {"Id":150956396,"LCode":"L150956396","Guid":"0fd691d1-77c2-49a4-9a24-d261d0172753","Created":"2013-02-15T02:38:19Z","TotalCostToStayInUserCurrency":{"CurrencyIso":"MYR","Amount":407.00},"TotalCostToStayInHotelCurrency":{"CurrencyIso":"MYR","Amount":407.00},"NoOfRooms":1,"Rooms":[{"Id":172044548,"Occupancy":{"Adults":2,"Children":0},"StayDetails":{"ArrivalDate":"2013-02-17T00:00:00.000+0000","Nights":1},"BreakfastIncluded":true,"DinnerIncluded":false,"CostToStayInUsersCurrency":407.00,"CostToStayInHotelsCurrency":407.00, "RateCode":"Default", "RoomCode":null}],"Nights":1,"ArrivalDate":"2013-02-17T00:00:00","ResponseTime":122.0122,"FormattedResponseTime":"122.0122ms","BookableOnline":true}
 
-Get enquiry with incorrect *id*
-GET /Enquiry/2352930
-> Content-Type: application/json
+Get enquiry with incorrect `{EnquiryId}`
+GET /Enquiry/{EnquiryId}
 < 404
 < Content-Type: application/json 
 {
@@ -412,9 +411,9 @@ POST /Booking
 Get Booking
 --
 
-Get booking with a correct *booking reference*
-GET /Booking/{0}
-> Content-Type: application/json
+Retrieve a booking identifier
+* `{BookingId}` is a valid booking identifier
+GET /Booking/{BookingId}
 < 200
 < Content-Type: application/json 
 {
@@ -471,9 +470,8 @@ GET /Booking/{0}
     } ]
 }
 
-Get booking with incorrect *id*
-GET /Booking/2352930
-> Content-Type: application/json
+Get booking with an unknown `{BookingId}`
+GET /Booking/{BookingId}
 < 404
 < Content-Type: application/json 
 {
