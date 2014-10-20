@@ -3,6 +3,29 @@ HOST: http://api.laterooms.com/
 --- TLRG Reservations API ---
 
 --
+Get Enquiry
+--
+
+Retrieve an enquiry by identifier
+* `{EnquiryId}` is a valid enquiry identifier
+GET /Enquiry/{EnquiryId}
+< 200
+< Content-Type: application/json
+{"Id":150956396,"LCode":"L150956396","Guid":"0fd691d1-77c2-49a4-9a24-d261d0172753","Created":"2013-02-15T02:38:19Z","TotalCostToStayInUserCurrency":{"CurrencyIso":"MYR","Amount":407.00},"TotalCostToStayInHotelCurrency":{"CurrencyIso":"MYR","Amount":407.00},"NoOfRooms":1,"Rooms":[{"Id":172044548,"Occupancy":{"Adults":2,"Children":0},"StayDetails":{"ArrivalDate":"2013-02-17T00:00:00.000+0000","Nights":1},"BreakfastIncluded":true,"DinnerIncluded":false,"CostToStayInUsersCurrency":407.00,"CostToStayInHotelsCurrency":407.00, "RateCode":"Default", "RoomCode":null}],"Nights":1,"ArrivalDate":"2013-02-17T00:00:00","ResponseTime":122.0122,"FormattedResponseTime":"122.0122ms","BookableOnline":true}
+
+Get enquiry with incorrect `{EnquiryId}`
+GET /Enquiry/{EnquiryId}
+< 404
+< Content-Type: application/json 
+{
+    "error":
+    {
+        "code": "5002",
+        "message": "Enquiry ID not found."
+    }
+}
+
+--
 Create Enquiry
 --
 
@@ -217,28 +240,250 @@ POST /Enquiry
     "BookableOnline":true
 }
 
+
 --
-Get Enquiry
+Get Booking
 --
 
-Retrieve an enquiry by identifier
-* `{EnquiryId}` is a valid enquiry identifier
-GET /Enquiry/{EnquiryId}
+Retrieve a booking identifier
+* `{BookingId}` is a valid booking identifier
+GET /Booking/{BookingId}
 < 200
-< Content-Type: application/json
-{"Id":150956396,"LCode":"L150956396","Guid":"0fd691d1-77c2-49a4-9a24-d261d0172753","Created":"2013-02-15T02:38:19Z","TotalCostToStayInUserCurrency":{"CurrencyIso":"MYR","Amount":407.00},"TotalCostToStayInHotelCurrency":{"CurrencyIso":"MYR","Amount":407.00},"NoOfRooms":1,"Rooms":[{"Id":172044548,"Occupancy":{"Adults":2,"Children":0},"StayDetails":{"ArrivalDate":"2013-02-17T00:00:00.000+0000","Nights":1},"BreakfastIncluded":true,"DinnerIncluded":false,"CostToStayInUsersCurrency":407.00,"CostToStayInHotelsCurrency":407.00, "RateCode":"Default", "RoomCode":null}],"Nights":1,"ArrivalDate":"2013-02-17T00:00:00","ResponseTime":122.0122,"FormattedResponseTime":"122.0122ms","BookableOnline":true}
+< Content-Type: application/json 
+{
+    "Reference": "243537R",
+    "HotelName": "Kildonan Lodge Hotel",
+    "HotelAddress": "27 Address Place",
+    "HotelCity": "Edinburgh",
+    "HotelPostcode": "EH16 5PE",
+    "ArrivalDate": "2014-02-07T00:00:00.000+0000",
+    "NoOfRooms": 2,
+    "TotalAmount": {
+        "CurrencyIso": "GBP",
+        "Amount": 350
+    },
+    "PriceBreakdown": { 
+        "TaxPercentage": 10,
+        "ServiceChargePercentage": 5,
+        "PriceInHotelCurrency": {
+            "BasePrice": 100.00,
+            "Tax": 10.00,
+            "ServiceCharge ": 5.00,
+            "Total": 115.00,
+            "Currency": "USD"
+        },
+        "PriceInUserCurrency": {
+            "BasePrice": 100.00,
+            "Tax": 10.00,
+            "ServiceCharge ": 5.00,
+            "Total": 115.00,
+            "Currency": "GBP"
+        }
+    },
+    "Rooms": [ {
+        "Adults": 2,
+        "Children": 0,
+        "Breakfast": true,
+        "RoomType": "Standard",
+        "TotalPrice": {
+            "CurrencyIso": "GBP",
+            "Amount": 100
+        },
+        "TotalNights": 2
+    },
+    {
+        "Adults": 2,
+        "Children": 0,
+        "Breakfast": true,
+        "RoomType": "Standard",
+        "TotalPrice": {
+            "CurrencyIso": "GBP",
+            "Amount": 250
+        },
+        "TotalNights": 2
+    } ]
+}
 
-Get enquiry with incorrect `{EnquiryId}`
-GET /Enquiry/{EnquiryId}
+Get booking with an unknown `{BookingId}`
+GET /Booking/{BookingId}
 < 404
 < Content-Type: application/json 
 {
     "error":
     {
-        "code": "5002",
-        "message": "Enquiry ID not found."
+        "code": "5202",
+        "message": "Booking ID not found."
     }
 }
+
+
+--
+Get Booking List 
+--
+
+Get list of bookings with correct user id
+
+
+GET /BookingList/?Page=1&PageSize=10
+> TLRG-SID: afe0c700-0eff-11e3-b5b3-9f598a0c9d46
+< 200
+< Content-Type: application/json 
+{
+    "Pages": 1,
+    "TotalCount": 3,
+    "PastCount": 3,
+    "FutureCount": 0,
+    "Bookings": [ {
+        "Reference": "23668776R",
+        "HotelId": 1234,
+        "HotelName": "Park Plaza Westminster Bridge",
+        "HotelAddress": "200 Westminster Bridge Road",
+        "HotelCity": "London",
+        "HotelPostcode": "SE1 7UT",
+        "GeoPoint": {
+                "Lat": 53.25284,
+                "Long": -1.9204
+            },
+        "ArrivalDate": "2013-10-14T00:00:00.000+0000",
+        "NoOfRooms": 1,
+        "Cancelled": false,
+        "TotalAmount": {
+            "CurrencyIso": "GBP",
+            "Amount": 187.2
+        },
+        "PriceBreakdown": { 
+            "TaxPercentage": 10,
+            "ServiceChargePercentage": 5,
+            "PriceInHotelCurrency": {
+                "BasePrice": 100.00,
+                "Tax": 10.00,
+                "ServiceCharge ": 5.00,
+                "Total": 115.00,
+                "Currency": "USD"
+            },
+            "PriceInUserCurrency": {
+                "BasePrice": 100.00,
+                "Tax": 10.00,
+                "ServiceCharge ": 5.00,
+                "Total": 115.00,
+                "Currency": "GBP"
+            }
+        },
+        "Rooms": [ {
+            "Adults": 2,
+            "Children": 0,
+            "Breakfast": false,
+            "RoomType": "Superior",
+            "TotalPrice": {
+                "CurrencyIso": "GBP",
+                "Amount": 187.2
+            },
+            "TotalNights": 1
+        } ]
+    },
+    {
+        "Reference": "8522065R",
+        "HotelName": "Mint Hotel Westminster ( Old Acc)",
+        "HotelAddress": "30 John Islip Street",
+        "HotelCity": "London",
+        "HotelPostcode": "SW1P 4DD",
+        "ArrivalDate": "2010-03-06T00:00:00.000+0000",
+        "NoOfRooms": 1,
+        "Cancelled": false,
+        "TotalAmount": {
+            "CurrencyIso": "GBP",
+            "Amount": 92.82
+        },
+        "PriceBreakdown": { 
+            "TaxPercentage": 10,
+            "ServiceChargePercentage": 5,
+            "PriceInHotelCurrency": {
+                "BasePrice": 100.00,
+                "Tax": 10.00,
+                "ServiceCharge ": 5.00,
+                "Total": 115.00,
+                "Currency": "USD"
+            },
+            "PriceInUserCurrency": {
+                "BasePrice": 100.00,
+                "Tax": 10.00,
+                "ServiceCharge ": 5.00,
+                "Total": 115.00,
+                "Currency": "GBP"
+            }
+        },
+        "Rooms": [ {
+            "Adults": 2,
+            "Children": 0,
+            "Breakfast": false,
+            "RoomType": "Standard",
+            "TotalPrice": {
+                "CurrencyIso": "GBP",
+                "Amount": 92.82
+            },
+            "TotalNights": 1
+        } ]
+    },
+    {
+        "Reference": "5018282R",
+        "HotelName": "Pilgrim Hotel",
+        "HotelAddress": "Much Birch\nWye Valley",
+        "HotelCity": "Herefordshire",
+        "HotelPostcode": "HR2 8HJ",
+        "ArrivalDate": "2008-10-24T00:00:00.000+0000",
+        "NoOfRooms": 1,
+        "Cancelled": false,
+        "TotalAmount": {
+            "CurrencyIso": "GBP",
+            "Amount": 75
+        },
+        "PriceBreakdown": { 
+            "TaxPercentage": 10,
+            "ServiceChargePercentage": 5,
+            "PriceInHotelCurrency": {
+                "BasePrice": 100.00,
+                "Tax": 10.00,
+                "ServiceCharge ": 5.00,
+                "Total": 115.00,
+                "Currency": "USD"
+            },
+            "PriceInUserCurrency": {
+                "BasePrice": 100.00,
+                "Tax": 10.00,
+                "ServiceCharge ": 5.00,
+                "Total": 115.00,
+                "Currency": "GBP"
+            }
+        },
+        "Rooms": [ {
+            "Adults": 2,
+            "Children": 0,
+            "Breakfast": false,
+            "RoomType": "Standard",
+            "TotalPrice": {
+                "CurrencyIso": "GBP",
+                "Amount": 75
+            },
+            "TotalNights": 1
+        } ]
+    }
+}
+
+Get list of bookings for a user that has no bookings
+GET /BookingList/?Page=1&PageSize=10
+> TLRG-SID: afe0c700-0eff-11e3-b5b3-9f598a0c9d46
+< 200
+< Content-Type: application/json 
+{
+    {
+        "Pages": 0,
+        "TotalCount": 0,
+        "PastCount": 0,
+        "FutureCount": 0,
+        "Bookings": []
+    }
+}
+
 
 --
 Create Booking
@@ -415,78 +660,36 @@ POST /Booking
 }
 
 --
-Get Booking
+Resend Communication
 --
 
-Retrieve a booking identifier
-* `{BookingId}` is a valid booking identifier
-GET /Booking/{BookingId}
-< 200
-< Content-Type: application/json 
-{
-    "Reference": "243537R",
-    "HotelName": "Kildonan Lodge Hotel",
-    "HotelAddress": "27 Address Place",
-    "HotelCity": "Edinburgh",
-    "HotelPostcode": "EH16 5PE",
-    "ArrivalDate": "2014-02-07T00:00:00.000+0000",
-    "NoOfRooms": 2,
-    "TotalAmount": {
-        "CurrencyIso": "GBP",
-        "Amount": 350
-    },
-    "PriceBreakdown": { 
-        "TaxPercentage": 10,
-        "ServiceChargePercentage": 5,
-        "PriceInHotelCurrency": {
-            "BasePrice": 100.00,
-            "Tax": 10.00,
-            "ServiceCharge ": 5.00,
-            "Total": 115.00,
-            "Currency": "USD"
-        },
-        "PriceInUserCurrency": {
-            "BasePrice": 100.00,
-            "Tax": 10.00,
-            "ServiceCharge ": 5.00,
-            "Total": 115.00,
-            "Currency": "GBP"
-        }
-    },
-    "Rooms": [ {
-        "Adults": 2,
-        "Children": 0,
-        "Breakfast": true,
-        "RoomType": "Standard",
-        "TotalPrice": {
-            "CurrencyIso": "GBP",
-            "Amount": 100
-        },
-        "TotalNights": 2
-    },
-    {
-        "Adults": 2,
-        "Children": 0,
-        "Breakfast": true,
-        "RoomType": "Standard",
-        "TotalPrice": {
-            "CurrencyIso": "GBP",
-            "Amount": 250
-        },
-        "TotalNights": 2
-    } ]
-}
+Resends a specified communication type for a booking
 
-Get booking with an unknown `{BookingId}`
-GET /Booking/{BookingId}
-< 404
-< Content-Type: application/json 
+* `BookingId` must be a valid booking id
+* `CommunicationType` the type of communication to send; one of
+    * `confirmation`
+    * `cancellation`
+* `Medium` is the communication channel to use; one of
+    * `email`
+    * `sms`
+    * `fax`
+* `Recipient` is the target for the communication; one of
+    * `hotel`
+    * `guest`
+    * `booker`
+
+POST /communications/resend
+> Content-Type: application/json
 {
-    "error":
-    {
-        "code": "5202",
-        "message": "Booking ID not found."
-    }
+  "BookingId": 27078087,
+  "CommunicationType": "cancellation",
+  "Medium": "email",
+  "Recipient": "hotel"
+}
+< 200
+< Content-Type: application/json
+{
+    "success" : true
 }
 
 --
@@ -517,204 +720,4 @@ GET /CreditCard/GetCards/151278?AdvancedPayment=true
                     {"Id":7, "Name":"Visa Electron", "cvcDigits":3, "startDate":false, "issueNumber":false},
                     {"Id":10, "Name":"Visa Debit", "cvcDigits":3, "startDate":false, "issueNumber":false}
                   ]
-}
-
---
-Get Booking List 
---
-
-Get list of bookings with correct user id
-
-
-GET /BookingList/?Page=1&PageSize=10
-> TLRG-SID: afe0c700-0eff-11e3-b5b3-9f598a0c9d46
-< 200
-< Content-Type: application/json 
-{
-    "Pages": 1,
-    "TotalCount": 3,
-    "PastCount": 3,
-    "FutureCount": 0,
-    "Bookings": [ {
-        "Reference": "23668776R",
-        "HotelId": 1234,
-        "HotelName": "Park Plaza Westminster Bridge",
-        "HotelAddress": "200 Westminster Bridge Road",
-        "HotelCity": "London",
-        "HotelPostcode": "SE1 7UT",
-        "GeoPoint": {
-                "Lat": 53.25284,
-                "Long": -1.9204
-            },
-        "ArrivalDate": "2013-10-14T00:00:00.000+0000",
-        "NoOfRooms": 1,
-        "Cancelled": false,
-        "TotalAmount": {
-            "CurrencyIso": "GBP",
-            "Amount": 187.2
-        },
-        "PriceBreakdown": { 
-            "TaxPercentage": 10,
-            "ServiceChargePercentage": 5,
-            "PriceInHotelCurrency": {
-                "BasePrice": 100.00,
-                "Tax": 10.00,
-                "ServiceCharge ": 5.00,
-                "Total": 115.00,
-                "Currency": "USD"
-            },
-            "PriceInUserCurrency": {
-                "BasePrice": 100.00,
-                "Tax": 10.00,
-                "ServiceCharge ": 5.00,
-                "Total": 115.00,
-                "Currency": "GBP"
-            }
-        },
-        "Rooms": [ {
-            "Adults": 2,
-            "Children": 0,
-            "Breakfast": false,
-            "RoomType": "Superior",
-            "TotalPrice": {
-                "CurrencyIso": "GBP",
-                "Amount": 187.2
-            },
-            "TotalNights": 1
-        } ]
-    },
-    {
-        "Reference": "8522065R",
-        "HotelName": "Mint Hotel Westminster ( Old Acc)",
-        "HotelAddress": "30 John Islip Street",
-        "HotelCity": "London",
-        "HotelPostcode": "SW1P 4DD",
-        "ArrivalDate": "2010-03-06T00:00:00.000+0000",
-        "NoOfRooms": 1,
-        "Cancelled": false,
-        "TotalAmount": {
-            "CurrencyIso": "GBP",
-            "Amount": 92.82
-        },
-        "PriceBreakdown": { 
-            "TaxPercentage": 10,
-            "ServiceChargePercentage": 5,
-            "PriceInHotelCurrency": {
-                "BasePrice": 100.00,
-                "Tax": 10.00,
-                "ServiceCharge ": 5.00,
-                "Total": 115.00,
-                "Currency": "USD"
-            },
-            "PriceInUserCurrency": {
-                "BasePrice": 100.00,
-                "Tax": 10.00,
-                "ServiceCharge ": 5.00,
-                "Total": 115.00,
-                "Currency": "GBP"
-            }
-        },
-        "Rooms": [ {
-            "Adults": 2,
-            "Children": 0,
-            "Breakfast": false,
-            "RoomType": "Standard",
-            "TotalPrice": {
-                "CurrencyIso": "GBP",
-                "Amount": 92.82
-            },
-            "TotalNights": 1
-        } ]
-    },
-    {
-        "Reference": "5018282R",
-        "HotelName": "Pilgrim Hotel",
-        "HotelAddress": "Much Birch\nWye Valley",
-        "HotelCity": "Herefordshire",
-        "HotelPostcode": "HR2 8HJ",
-        "ArrivalDate": "2008-10-24T00:00:00.000+0000",
-        "NoOfRooms": 1,
-        "Cancelled": false,
-        "TotalAmount": {
-            "CurrencyIso": "GBP",
-            "Amount": 75
-        },
-        "PriceBreakdown": { 
-            "TaxPercentage": 10,
-            "ServiceChargePercentage": 5,
-            "PriceInHotelCurrency": {
-                "BasePrice": 100.00,
-                "Tax": 10.00,
-                "ServiceCharge ": 5.00,
-                "Total": 115.00,
-                "Currency": "USD"
-            },
-            "PriceInUserCurrency": {
-                "BasePrice": 100.00,
-                "Tax": 10.00,
-                "ServiceCharge ": 5.00,
-                "Total": 115.00,
-                "Currency": "GBP"
-            }
-        },
-        "Rooms": [ {
-            "Adults": 2,
-            "Children": 0,
-            "Breakfast": false,
-            "RoomType": "Standard",
-            "TotalPrice": {
-                "CurrencyIso": "GBP",
-                "Amount": 75
-            },
-            "TotalNights": 1
-        } ]
-    }
-}
-
-Get list of bookings for a user that has no bookings
-GET /BookingList/?Page=1&PageSize=10
-> TLRG-SID: afe0c700-0eff-11e3-b5b3-9f598a0c9d46
-< 200
-< Content-Type: application/json 
-{
-    {
-        "Pages": 0,
-        "TotalCount": 0,
-        "PastCount": 0,
-        "FutureCount": 0,
-        "Bookings": []
-    }
-}
-
---
-Resend communication
---
-
-Resends a specified communication type for a booking
-
-* `BookingId` must be a valid booking id
-* `CommunicationType` the type of communication to send; one of
-    * `confirmation`
-    * `cancellation`
-* `Medium` is the communication channel to use; one of
-    * `email`
-    * `sms`
-    * `fax`
-* `Recipient` is the target for the communication; one of
-    * `hotel`
-    * `guest`
-    * `booker`
-
-POST /communications/resend
-> Content-Type: application/json
-{
-  "BookingId": 27078087,
-  "CommunicationType": "cancellation",
-  "Medium": "email",
-  "Recipient": "hotel"
-}
-< 200
-< Content-Type: application/json
-{
-    "success" : true
 }
