@@ -7,6 +7,13 @@ Create Enquiry
 --
 
 Create an enquiry with rooms from rates api response
+
+* `Currency` must be a valid 3 digit ISO Currency Code e.g. Pound Sterling is _GBP_
+* `Language` must be a valid 2 digit ISO Language Code e.g. English is _EN_
+* `HotelId` must be a valid hotel identifier
+* `AffiliateId` must be a valid affiliate identifier
+* `Rooms`
+    * `Id` must be a valid room identifier
 POST /Enquiry
 > Content-Type: application/json
 {
