@@ -309,7 +309,7 @@ GET /Booking/{BookingId}
 
 New in V2:
 
-* Cancelation policy link
+* Cancellation policy link
 * Lead guest name for each room
 
 GET /Booking/v2/{BookingId}
@@ -323,7 +323,7 @@ GET /Booking/v2/{BookingId}
     "HotelPostcode": "EH16 5PE",
     "ArrivalDate": "2014-02-07T00:00:00.000+0000",
     "NoOfRooms": 2,
-    "CancelationPolicy": "http://www.laterooms.com/cancelation-policy/1234",
+    "CancellationPolicy": "http://www.laterooms.com/cancelation-policy/1234",
     "TotalAmount": {
         "CurrencyIso": "GBP",
         "Amount": 350
@@ -549,6 +549,8 @@ GET /BookingList/?Page=1&PageSize=10
 }
 
 **DRAFT:** V2 Get list of bookings with correct user id
+
+_Parameters:_
 
 * `PageSize` _(Optional)_ must be an integer. 0 will return all results in a single page (capped at 1,000 results)
 * `Page` returns results for the specified page. Must be used in conjunction with PageSize 
