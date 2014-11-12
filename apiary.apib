@@ -304,6 +304,83 @@ GET /Booking/{BookingId}
     } ]
 }
 
+**DRAFT:** V2 Retrieve a booking identifier
+* `{BookingId}` is a valid booking identifier
+
+New in V2:
+* Cancelation policy link
+* Lead guest name for each room
+
+GET /Booking/v2/{BookingId}
+< 200
+< Content-Type: application/json 
+{
+    "Reference": "243537R",
+    "HotelName": "Kildonan Lodge Hotel",
+    "HotelAddress": "27 Address Place",
+    "HotelCity": "Edinburgh",
+    "HotelPostcode": "EH16 5PE",
+    "ArrivalDate": "2014-02-07T00:00:00.000+0000",
+    "NoOfRooms": 2,
+    "CancelationPolicy": "http://www.laterooms.com/cancelation-policy/1234",
+    "TotalAmount": {
+        "CurrencyIso": "GBP",
+        "Amount": 350
+    },
+    "PriceBreakdown": {
+        "TaxPercentage": 10,
+        "ServiceChargePercentage": 5,
+        "PriceInHotelCurrency": {
+            "BasePrice": 100,
+            "Tax": 10,
+            "ServiceCharge ": 5,
+            "Total": 115,
+            "Currency": "USD"
+        },
+        "PriceInUserCurrency": {
+            "BasePrice": 100,
+            "Tax": 10,
+            "ServiceCharge ": 5,
+            "Total": 115,
+            "Currency": "GBP"
+        }
+    },
+    "Rooms": [
+        {
+            "Adults": 2,
+            "Children": 0,
+            "Breakfast": true,
+            "RoomType": "Standard",
+            "TotalPrice": {
+                "CurrencyIso": "GBP",
+                "Amount": 100
+            },
+            "TotalNights": 2,
+            "LeadGuest": {
+                "Title": "Mr",
+                "FirstName": "Dave",
+                "Surname": "Example"
+            }
+        },
+        {
+            "Adults": 2,
+            "Children": 0,
+            "Breakfast": true,
+            "RoomType": "Standard",
+            "TotalPrice": {
+                "CurrencyIso": "GBP",
+                "Amount": 250
+            },
+            "TotalNights": 2,
+            "LeadGuest": {
+                "Title": "Mr",
+                "FirstName": "Jamie",
+                "Surname": "Example"
+            }
+        }
+    ]
+}
+
 Get booking with an unknown `{BookingId}`
 GET /Booking/{BookingId}
 < 404
@@ -325,6 +402,163 @@ Get list of bookings with correct user id
 
 
 GET /BookingList/?Page=1&PageSize=10
+> TLRG-UN: john-harkins@laterooms.com
+> TLRG-SID: afe0c700-0eff-11e3-b5b3-9f598a0c9d46
+< 200
+< Content-Type: application/json 
+{
+    "Pages": 1,
+    "TotalCount": 3,
+    "PastCount": 3,
+    "FutureCount": 0,
+    "Bookings": [ {
+        "Reference": "23668776R",
+        "HotelId": 1234,
+        "HotelName": "Park Plaza Westminster Bridge",
+        "HotelAddress": "200 Westminster Bridge Road",
+        "HotelCity": "London",
+        "HotelPostcode": "SE1 7UT",
+        "GeoPoint": {
+                "Lat": 53.25284,
+                "Long": -1.9204
+            },
+        "ArrivalDate": "2013-10-14T00:00:00.000+0000",
+        "NoOfRooms": 1,
+        "Cancelled": false,
+        "TotalAmount": {
+            "CurrencyIso": "GBP",
+            "Amount": 187.2
+        },
+        "PriceBreakdown": { 
+            "TaxPercentage": 10,
+            "ServiceChargePercentage": 5,
+            "PriceInHotelCurrency": {
+                "BasePrice": 100.00,
+                "Tax": 10.00,
+                "ServiceCharge ": 5.00,
+                "Total": 115.00,
+                "Currency": "USD"
+            },
+            "PriceInUserCurrency": {
+                "BasePrice": 100.00,
+                "Tax": 10.00,
+                "ServiceCharge ": 5.00,
+                "Total": 115.00,
+                "Currency": "GBP"
+            }
+        },
+        "Rooms": [ {
+            "Adults": 2,
+            "Children": 0,
+            "Breakfast": false,
+            "RoomType": "Superior",
+            "TotalPrice": {
+                "CurrencyIso": "GBP",
+                "Amount": 187.2
+            },
+            "TotalNights": 1
+        } ]
+    },
+    {
+        "Reference": "8522065R",
+        "HotelName": "Mint Hotel Westminster ( Old Acc)",
+        "HotelAddress": "30 John Islip Street",
+        "HotelCity": "London",
+        "HotelPostcode": "SW1P 4DD",
+        "ArrivalDate": "2010-03-06T00:00:00.000+0000",
+        "NoOfRooms": 1,
+        "Cancelled": false,
+        "TotalAmount": {
+            "CurrencyIso": "GBP",
+            "Amount": 92.82
+        },
+        "PriceBreakdown": { 
+            "TaxPercentage": 10,
+            "ServiceChargePercentage": 5,
+            "PriceInHotelCurrency": {
+                "BasePrice": 100.00,
+                "Tax": 10.00,
+                "ServiceCharge ": 5.00,
+                "Total": 115.00,
+                "Currency": "USD"
+            },
+            "PriceInUserCurrency": {
+                "BasePrice": 100.00,
+                "Tax": 10.00,
+                "ServiceCharge ": 5.00,
+                "Total": 115.00,
+                "Currency": "GBP"
+            }
+        },
+        "Rooms": [ {
+            "Adults": 2,
+            "Children": 0,
+            "Breakfast": false,
+            "RoomType": "Standard",
+            "TotalPrice": {
+                "CurrencyIso": "GBP",
+                "Amount": 92.82
+            },
+            "TotalNights": 1
+        } ]
+    },
+    {
+        "Reference": "5018282R",
+        "HotelName": "Pilgrim Hotel",
+        "HotelAddress": "Much Birch\nWye Valley",
+        "HotelCity": "Herefordshire",
+        "HotelPostcode": "HR2 8HJ",
+        "ArrivalDate": "2008-10-24T00:00:00.000+0000",
+        "NoOfRooms": 1,
+        "Cancelled": false,
+        "TotalAmount": {
+            "CurrencyIso": "GBP",
+            "Amount": 75
+        },
+        "PriceBreakdown": { 
+            "TaxPercentage": 10,
+            "ServiceChargePercentage": 5,
+            "PriceInHotelCurrency": {
+                "BasePrice": 100.00,
+                "Tax": 10.00,
+                "ServiceCharge ": 5.00,
+                "Total": 115.00,
+                "Currency": "USD"
+            },
+            "PriceInUserCurrency": {
+                "BasePrice": 100.00,
+                "Tax": 10.00,
+                "ServiceCharge ": 5.00,
+                "Total": 115.00,
+                "Currency": "GBP"
+            }
+        },
+        "Rooms": [ {
+            "Adults": 2,
+            "Children": 0,
+            "Breakfast": false,
+            "RoomType": "Standard",
+            "TotalPrice": {
+                "CurrencyIso": "GBP",
+                "Amount": 75
+            },
+            "TotalNights": 1
+        } ]
+    }
+}
+
+**DRAFT:** V2 Get list of bookings with correct user id
+
+* `PageSize` _(Optional)_ must be an integer. 0 will return all results in a single page (capped at 1,000 results)
+* `Page` returns results for the specified page. Must be used in conjunction with PageSize 
+* `asc` _(Optional)_ by default this option is false
+    * `true` returns bookings in ascending order
+    
+New in V2:
+* Added the ability to sort bookings by date
+
+
+GET /BookingList/v2/?Page=1&PageSize=10asc=true
 > TLRG-UN: john-harkins@laterooms.com
 > TLRG-SID: afe0c700-0eff-11e3-b5b3-9f598a0c9d46
 < 200
