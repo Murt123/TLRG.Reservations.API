@@ -485,15 +485,20 @@ GET /BookingList/?Page=1&PageSize=10
     }
 }
 
-DRAFT: Get list of bookings for a hotel with a correct hotel id
+**DRAFT:** Get list of bookings for a hotel with a correct hotel id
+
+_Parameters:_
 
 * `TLRG-Hotel` must be a valid hotel ID
 * `PageSize` must be an integer. 0 will return all results in a single page
-* `Page` 
+* `Page` returns results for the specified page. Must be used in conjunction with PageSize 
 * `BookingDate` must be valid time stamp format eg. 'YYYY-MM-DD HH:MM:SS'. Will return bookings made after this timestamp
 * `ArrivalDate` must be valid time stamp format eg. 'YYYY-MM-DD HH:MM:SS'. Will return bookings due to arrive after this timestamp
+* `Sort` will order the result set 
+    * `asc` returns bookings in ascending order
+    * `desc` returns bookings in descending order
 
-GET /BookingList/v2/?Page=1&PageSize=10&TLRG-HotelID=1234
+GET /BookingList/v2/?Page=1&PageSize=10&Sort=asc&TLRG-HotelID=1234
 > TLRG-SID: afe0c700-0eff-11e3-b5b3-9f598a0c9d46
 < 200
 < Content-Type: application/json 
@@ -638,14 +643,19 @@ GET /BookingList/v2/?Page=1&PageSize=10&TLRG-HotelID=1234
     ]
 }
 
-DRAFT: Get list of bookings for a provider
+**DRAFT:** Get list of bookings for a provider
+
+_Parameters:_
 
 * `TLRG-Provider` must be a valid provider ID
 * `PageSize` must be an integer. 0 will return all results in a single page
-* `Page` 
+* `Page` returns results for the specified page. Must be used in conjunction with PageSize 
 * `BookingDate` must be valid time stamp format eg. 'YYYY-MM-DD HH:MM:SS'. Will return bookings made after this timestamp
 * `ArrivalDate` must be valid time stamp format eg. 'YYYY-MM-DD HH:MM:SS'. Will return bookings due to arrive after this timestamp
-
+* `Sort` will order the result set 
+    * `asc` returns bookings in ascending order
+    * `desc` returns bookings in descending order
+    
 GET /BookingList/v2/?Page=1&PageSize=10&TLRG-ProviderID=12
 > TLRG-SID: afe0c700-0eff-11e3-b5b3-9f598a0c9d46
 < 200
