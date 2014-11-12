@@ -486,9 +486,8 @@ GET /BookingList/?Page=1&PageSize=10
 }
 
 DRAFT: Get list of bookings for a hotel with a correct hotel id
-GET /BookingList/v2/?Page=1&PageSize=10
+GET /BookingList/v2/?Page=1&PageSize=10&TLRG-HotelID=1234
 > TLRG-SID: afe0c700-0eff-11e3-b5b3-9f598a0c9d46
-> TLRG-HotelID: 1234
 < 200
 < Content-Type: application/json 
 {
@@ -496,134 +495,435 @@ GET /BookingList/v2/?Page=1&PageSize=10
     "TotalCount": 3,
     "PastCount": 1,
     "FutureCount": 2,
-    "Bookings": [ {
-        "Reference": "23668776R",
-        "BookingDate": "2013-10-13T00:00:00.000+0000",
-        "ArrivalDate": "2013-10-14T00:00:00.000+0000",
-        "NoOfRooms": 1,
-        "Cancelled": false,
-        "TotalAmount": {
-            "CurrencyIso": "GBP",
-            "Amount": 187.2
-        },
-        "PriceBreakdown": { 
-            "TaxPercentage": 10,
-            "ServiceChargePercentage": 5,
-            "PriceInHotelCurrency": {
-                "BasePrice": 100.00,
-                "Tax": 10.00,
-                "ServiceCharge ": 5.00,
-                "Total": 115.00,
-                "Currency": "USD",
-                "ComValue": 39.69,
-                "ComPercentage": 21
-            },
-        },
-        "Booker": {
-		"Title": "Mr",
-		"FirstName": "Dave",
-		"Surname": "Example",
-		"Email": "example@example.com",
-		"Telephone": "0777777777",
-	},
-        "Rooms": [ {
-            "Adults": 2,
-            "Children": 0,
-            "Breakfast": false,
-            "RoomType": "Superior",
-            "TotalPrice": {
+    "Bookings": [
+        {
+            "Reference": "23668776R",
+            "BookingDate": "2013-10-13T00:00:00.000+0000",
+            "ArrivalDate": "2013-10-14T00:00:00.000+0000",
+            "NoOfRooms": 1,
+            "Cancelled": false,
+            "TotalAmount": {
                 "CurrencyIso": "GBP",
                 "Amount": 187.2
             },
-            "TotalNights": 1
-        } ]
-    },
-    {
-        "Reference": "23236521R",
-        "BookingDate": "2013-10-13T00:00:00.000+0000",
-        "ArrivalDate": "2013-10-14T00:00:00.000+0000",
-        "NoOfRooms": 1,
-        "Cancelled": false,
-        "TotalAmount": {
-            "CurrencyIso": "GBP",
-            "Amount": 187.2
-        },
-        "PriceBreakdown": { 
-            "TaxPercentage": 10,
-            "ServiceChargePercentage": 5,
-            "PriceInHotelCurrency": {
-                "BasePrice": 100.00,
-                "Tax": 10.00,
-                "ServiceCharge ": 5.00,
-                "Total": 115.00,
-                "Currency": "USD",
-                "ComValue": 39.69,
-                "ComPercentage": 21
+            "PriceBreakdown": {
+                "TaxPercentage": 10,
+                "ServiceChargePercentage": 5,
+                "PriceInHotelCurrency": {
+                    "BasePrice": 100,
+                    "Tax": 10,
+                    "ServiceCharge ": 5,
+                    "Total": 115,
+                    "Currency": "USD",
+                    "ComValue": 39.69,
+                    "ComPercentage": 21
+                }
             },
+            "Booker": {
+                "Title": "Mr",
+                "FirstName": "Dave",
+                "Surname": "Example",
+                "Email": "example@example.com",
+                "Telephone": "0777777777"
+            },
+            "Rooms": [
+                {
+                    "Adults": 2,
+                    "Children": 0,
+                    "Breakfast": false,
+                    "RoomType": "Superior",
+                    "TotalPrice": {
+                        "CurrencyIso": "GBP",
+                        "Amount": 187.2
+                    },
+                    "TotalNights": 1
+                }
+            ]
         },
-        "Booker": {
-		"Title": "Mr",
-		"FirstName": "Phil",
-		"Surname": "Example",
-		"Email": "example@example.com",
-		"Telephone": "0777777777",
-	},
-        "Rooms": [ {
-            "Adults": 1,
-            "Children": 0,
-            "Breakfast": false,
-            "RoomType": "Superior",
-            "TotalPrice": {
+        {
+            "Reference": "23236521R",
+            "BookingDate": "2013-10-13T00:00:00.000+0000",
+            "ArrivalDate": "2013-10-14T00:00:00.000+0000",
+            "NoOfRooms": 1,
+            "Cancelled": false,
+            "TotalAmount": {
                 "CurrencyIso": "GBP",
                 "Amount": 187.2
             },
-            "TotalNights": 2
-        } ]
-    },
-    {
-        "Reference": "23118332R",
-        "BookingDate": "2013-10-13T00:00:00.000+0000",
-        "ArrivalDate": "2013-10-14T00:00:00.000+0000",
-        "NoOfRooms": 1,
-        "Cancelled": false,
-        "TotalAmount": {
-            "CurrencyIso": "GBP",
-            "Amount": 187.2
-        },
-        "PriceBreakdown": { 
-            "TaxPercentage": 10,
-            "ServiceChargePercentage": 5,
-            "PriceInHotelCurrency": {
-                "BasePrice": 100.00,
-                "Tax": 10.00,
-                "ServiceCharge ": 5.00,
-                "Total": 115.00,
-                "Currency": "USD",
-                "ComValue": 39.69,
-                "ComPercentage": 21
+            "PriceBreakdown": {
+                "TaxPercentage": 10,
+                "ServiceChargePercentage": 5,
+                "PriceInHotelCurrency": {
+                    "BasePrice": 100,
+                    "Tax": 10,
+                    "ServiceCharge ": 5,
+                    "Total": 115,
+                    "Currency": "USD",
+                    "ComValue": 39.69,
+                    "ComPercentage": 21
+                }
             },
+            "Booker": {
+                "Title": "Mr",
+                "FirstName": "Phil",
+                "Surname": "Example",
+                "Email": "example@example.com",
+                "Telephone": "0777777777"
+            },
+            "Rooms": [
+                {
+                    "Adults": 1,
+                    "Children": 0,
+                    "Breakfast": false,
+                    "RoomType": "Superior",
+                    "TotalPrice": {
+                        "CurrencyIso": "GBP",
+                        "Amount": 187.2
+                    },
+                    "TotalNights": 2
+                }
+            ]
         },
-        "Booker": {
-		"Title": "Mr",
-		"FirstName": "Jamie",
-		"Surname": "Example",
-		"Email": "example@example.com",
-		"Telephone": "0777777777",
-	},
-        "Rooms": [ {
-            "Adults": 1,
-            "Children": 0,
-            "Breakfast": false,
-            "RoomType": "Superior",
-            "TotalPrice": {
+        {
+            "Reference": "23118332R",
+            "BookingDate": "2013-10-13T00:00:00.000+0000",
+            "ArrivalDate": "2013-10-14T00:00:00.000+0000",
+            "NoOfRooms": 1,
+            "Cancelled": false,
+            "TotalAmount": {
                 "CurrencyIso": "GBP",
                 "Amount": 187.2
             },
-            "TotalNights": 2
-        } ]
-    }]
+            "PriceBreakdown": {
+                "TaxPercentage": 10,
+                "ServiceChargePercentage": 5,
+                "PriceInHotelCurrency": {
+                    "BasePrice": 100,
+                    "Tax": 10,
+                    "ServiceCharge ": 5,
+                    "Total": 115,
+                    "Currency": "USD",
+                    "ComValue": 39.69,
+                    "ComPercentage": 21
+                }
+            },
+            "Booker": {
+                "Title": "Mr",
+                "FirstName": "Jamie",
+                "Surname": "Example",
+                "Email": "example@example.com",
+                "Telephone": "0777777777"
+            },
+            "Rooms": [
+                {
+                    "Adults": 1,
+                    "Children": 0,
+                    "Breakfast": false,
+                    "RoomType": "Superior",
+                    "TotalPrice": {
+                        "CurrencyIso": "GBP",
+                        "Amount": 187.2
+                    },
+                    "TotalNights": 2
+                }
+            ]
+        }
+    ]
 }
 
+DRAFT: Get list of bookings for a provider
+GET /BookingList/v2/?Page=1&PageSize=10&TLRG-ProviderID=12
+> TLRG-SID: afe0c700-0eff-11e3-b5b3-9f598a0c9d46
+< 200
+< Content-Type: application/json 
+{
+    "Pages": 1,
+    "TotalCount": 3,
+    "PastCount": 1,
+    "FutureCount": 2,
+    "Hotel": [
+        {
+            "HotelName": "Hotel A",
+            "HotelAddress": "27 Address Place",
+            "HotelCity": "Edinburgh",
+            "HotelPostcode": "EH16 5PE",
+            "Bookings": [
+                {
+                    "Reference": "23668776R",
+                    "BookingDate": "2013-10-13T00:00:00.000+0000",
+                    "ArrivalDate": "2013-10-14T00:00:00.000+0000",
+                    "NoOfRooms": 1,
+                    "Cancelled": false,
+                    "TotalAmount": {
+                        "CurrencyIso": "GBP",
+                        "Amount": 187.2
+                    },
+                    "PriceBreakdown": {
+                        "TaxPercentage": 10,
+                        "ServiceChargePercentage": 5,
+                        "PriceInHotelCurrency": {
+                            "BasePrice": 100,
+                            "Tax": 10,
+                            "ServiceCharge ": 5,
+                            "Total": 115,
+                            "Currency": "USD",
+                            "ComValue": 39.69,
+                            "ComPercentage": 21
+                        }
+                    },
+                    "Booker": {
+                        "Title": "Mr",
+                        "FirstName": "Dave",
+                        "Surname": "Example",
+                        "Email": "example@example.com",
+                        "Telephone": "0777777777"
+                    },
+                    "Rooms": [
+                        {
+                            "Adults": 2,
+                            "Children": 0,
+                            "Breakfast": false,
+                            "RoomType": "Superior",
+                            "TotalPrice": {
+                                "CurrencyIso": "GBP",
+                                "Amount": 187.2
+                            },
+                            "TotalNights": 1
+                        }
+                    ]
+                },
+                {
+                    "Reference": "23236521R",
+                    "BookingDate": "2013-10-13T00:00:00.000+0000",
+                    "ArrivalDate": "2013-10-14T00:00:00.000+0000",
+                    "NoOfRooms": 1,
+                    "Cancelled": false,
+                    "TotalAmount": {
+                        "CurrencyIso": "GBP",
+                        "Amount": 187.2
+                    },
+                    "PriceBreakdown": {
+                        "TaxPercentage": 10,
+                        "ServiceChargePercentage": 5,
+                        "PriceInHotelCurrency": {
+                            "BasePrice": 100,
+                            "Tax": 10,
+                            "ServiceCharge ": 5,
+                            "Total": 115,
+                            "Currency": "USD",
+                            "ComValue": 39.69,
+                            "ComPercentage": 21
+                        }
+                    },
+                    "Booker": {
+                        "Title": "Mr",
+                        "FirstName": "Phil",
+                        "Surname": "Example",
+                        "Email": "example@example.com",
+                        "Telephone": "0777777777"
+                    },
+                    "Rooms": [
+                        {
+                            "Adults": 1,
+                            "Children": 0,
+                            "Breakfast": false,
+                            "RoomType": "Superior",
+                            "TotalPrice": {
+                                "CurrencyIso": "GBP",
+                                "Amount": 187.2
+                            },
+                            "TotalNights": 2
+                        }
+                    ]
+                },
+                {
+                    "Reference": "23118332R",
+                    "BookingDate": "2013-10-13T00:00:00.000+0000",
+                    "ArrivalDate": "2013-10-14T00:00:00.000+0000",
+                    "NoOfRooms": 1,
+                    "Cancelled": false,
+                    "TotalAmount": {
+                        "CurrencyIso": "GBP",
+                        "Amount": 187.2
+                    },
+                    "PriceBreakdown": {
+                        "TaxPercentage": 10,
+                        "ServiceChargePercentage": 5,
+                        "PriceInHotelCurrency": {
+                            "BasePrice": 100,
+                            "Tax": 10,
+                            "ServiceCharge ": 5,
+                            "Total": 115,
+                            "Currency": "USD",
+                            "ComValue": 39.69,
+                            "ComPercentage": 21
+                        }
+                    },
+                    "Booker": {
+                        "Title": "Mr",
+                        "FirstName": "Jamie",
+                        "Surname": "Example",
+                        "Email": "example@example.com",
+                        "Telephone": "0777777777"
+                    },
+                    "Rooms": [
+                        {
+                            "Adults": 1,
+                            "Children": 0,
+                            "Breakfast": false,
+                            "RoomType": "Superior",
+                            "TotalPrice": {
+                                "CurrencyIso": "GBP",
+                                "Amount": 187.2
+                            },
+                            "TotalNights": 2
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "HotelName": "Hotel B",
+            "HotelAddress": "27 Address Place",
+            "HotelCity": "Edinburgh",
+            "HotelPostcode": "EH16 5PE",
+            "Bookings": [
+                {
+                    "Reference": "23668776R",
+                    "BookingDate": "2013-10-13T00:00:00.000+0000",
+                    "ArrivalDate": "2013-10-14T00:00:00.000+0000",
+                    "NoOfRooms": 1,
+                    "Cancelled": false,
+                    "TotalAmount": {
+                        "CurrencyIso": "GBP",
+                        "Amount": 187.2
+                    },
+                    "PriceBreakdown": {
+                        "TaxPercentage": 10,
+                        "ServiceChargePercentage": 5,
+                        "PriceInHotelCurrency": {
+                            "BasePrice": 100,
+                            "Tax": 10,
+                            "ServiceCharge ": 5,
+                            "Total": 115,
+                            "Currency": "USD",
+                            "ComValue": 39.69,
+                            "ComPercentage": 21
+                        }
+                    },
+                    "Booker": {
+                        "Title": "Mr",
+                        "FirstName": "Dave",
+                        "Surname": "Example",
+                        "Email": "example@example.com",
+                        "Telephone": "0777777777"
+                    },
+                    "Rooms": [
+                        {
+                            "Adults": 2,
+                            "Children": 0,
+                            "Breakfast": false,
+                            "RoomType": "Superior",
+                            "TotalPrice": {
+                                "CurrencyIso": "GBP",
+                                "Amount": 187.2
+                            },
+                            "TotalNights": 1
+                        }
+                    ]
+                },
+                {
+                    "Reference": "23236521R",
+                    "BookingDate": "2013-10-13T00:00:00.000+0000",
+                    "ArrivalDate": "2013-10-14T00:00:00.000+0000",
+                    "NoOfRooms": 1,
+                    "Cancelled": false,
+                    "TotalAmount": {
+                        "CurrencyIso": "GBP",
+                        "Amount": 187.2
+                    },
+                    "PriceBreakdown": {
+                        "TaxPercentage": 10,
+                        "ServiceChargePercentage": 5,
+                        "PriceInHotelCurrency": {
+                            "BasePrice": 100,
+                            "Tax": 10,
+                            "ServiceCharge ": 5,
+                            "Total": 115,
+                            "Currency": "USD",
+                            "ComValue": 39.69,
+                            "ComPercentage": 21
+                        }
+                    },
+                    "Booker": {
+                        "Title": "Mr",
+                        "FirstName": "Phil",
+                        "Surname": "Example",
+                        "Email": "example@example.com",
+                        "Telephone": "0777777777"
+                    },
+                    "Rooms": [
+                        {
+                            "Adults": 1,
+                            "Children": 0,
+                            "Breakfast": false,
+                            "RoomType": "Superior",
+                            "TotalPrice": {
+                                "CurrencyIso": "GBP",
+                                "Amount": 187.2
+                            },
+                            "TotalNights": 2
+                        }
+                    ]
+                },
+                {
+                    "Reference": "23118332R",
+                    "BookingDate": "2013-10-13T00:00:00.000+0000",
+                    "ArrivalDate": "2013-10-14T00:00:00.000+0000",
+                    "NoOfRooms": 1,
+                    "Cancelled": false,
+                    "TotalAmount": {
+                        "CurrencyIso": "GBP",
+                        "Amount": 187.2
+                    },
+                    "PriceBreakdown": {
+                        "TaxPercentage": 10,
+                        "ServiceChargePercentage": 5,
+                        "PriceInHotelCurrency": {
+                            "BasePrice": 100,
+                            "Tax": 10,
+                            "ServiceCharge ": 5,
+                            "Total": 115,
+                            "Currency": "USD",
+                            "ComValue": 39.69,
+                            "ComPercentage": 21
+                        }
+                    },
+                    "Booker": {
+                        "Title": "Mr",
+                        "FirstName": "Jamie",
+                        "Surname": "Example",
+                        "Email": "example@example.com",
+                        "Telephone": "0777777777"
+                    },
+                    "Rooms": [
+                        {
+                            "Adults": 1,
+                            "Children": 0,
+                            "Breakfast": false,
+                            "RoomType": "Superior",
+                            "TotalPrice": {
+                                "CurrencyIso": "GBP",
+                                "Amount": 187.2
+                            },
+                            "TotalNights": 2
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
 
 --
 Create Booking
