@@ -555,9 +555,10 @@ GET /BookingList/?Page=1&PageSize=10
 * `asc` _(Optional)_ by default this option is false
     * `true` returns bookings in ascending order
     
-New in V2:
+New/Fixed in V2:
 
 * Added the ability to sort bookings by date
+* Fixed a bug that casued the Total Count & Pages to be returned with the wrong mappings
 
 
 GET /BookingList/v2/?Page=1&PageSize=10asc=true
