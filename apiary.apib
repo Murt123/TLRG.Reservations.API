@@ -494,8 +494,8 @@ GET /BookingList/v2/?Page=1&PageSize=10
 {
     "Pages": 1,
     "TotalCount": 3,
-    "PastCount": 3,
-    "FutureCount": 0,
+    "PastCount": 1,
+    "FutureCount": 2,
     "Bookings": [ {
         "Reference": "23668776R",
         "BookingDate": "2013-10-13T00:00:00.000+0000",
@@ -519,6 +519,13 @@ GET /BookingList/v2/?Page=1&PageSize=10
                 "ComPercentage": 21
             },
         },
+        "Booker": {
+		"Title": "Mr",
+		"FirstName": "Dave",
+		"Surname": "Example",
+		"Email": "example@example.com",
+		"Telephone": "0777777777",
+	},
         "Rooms": [ {
             "Adults": 2,
             "Children": 0,
@@ -532,17 +539,14 @@ GET /BookingList/v2/?Page=1&PageSize=10
         } ]
     },
     {
-        "Reference": "8522065R",
-        "HotelName": "Mint Hotel Westminster ( Old Acc)",
-        "HotelAddress": "30 John Islip Street",
-        "HotelCity": "London",
-        "HotelPostcode": "SW1P 4DD",
-        "ArrivalDate": "2010-03-06T00:00:00.000+0000",
+        "Reference": "23118332R",
+        "BookingDate": "2013-10-13T00:00:00.000+0000",
+        "ArrivalDate": "2013-10-14T00:00:00.000+0000",
         "NoOfRooms": 1,
         "Cancelled": false,
         "TotalAmount": {
             "CurrencyIso": "GBP",
-            "Amount": 92.82
+            "Amount": 187.2
         },
         "PriceBreakdown": { 
             "TaxPercentage": 10,
@@ -552,40 +556,39 @@ GET /BookingList/v2/?Page=1&PageSize=10
                 "Tax": 10.00,
                 "ServiceCharge ": 5.00,
                 "Total": 115.00,
-                "Currency": "USD"
+                "Currency": "USD",
+                "ComValue": 39.69,
+                "ComPercentage": 21
             },
-            "PriceInUserCurrency": {
-                "BasePrice": 100.00,
-                "Tax": 10.00,
-                "ServiceCharge ": 5.00,
-                "Total": 115.00,
-                "Currency": "GBP"
-            }
         },
+        "Booker": {
+		"Title": "Mr",
+		"FirstName": "Jamie",
+		"Surname": "Example",
+		"Email": "example@example.com",
+		"Telephone": "0777777777",
+	},
         "Rooms": [ {
-            "Adults": 2,
+            "Adults": 1,
             "Children": 0,
             "Breakfast": false,
-            "RoomType": "Standard",
+            "RoomType": "Superior",
             "TotalPrice": {
                 "CurrencyIso": "GBP",
-                "Amount": 92.82
+                "Amount": 187.2
             },
-            "TotalNights": 1
+            "TotalNights": 2
         } ]
     },
     {
-        "Reference": "5018282R",
-        "HotelName": "Pilgrim Hotel",
-        "HotelAddress": "Much Birch\nWye Valley",
-        "HotelCity": "Herefordshire",
-        "HotelPostcode": "HR2 8HJ",
-        "ArrivalDate": "2008-10-24T00:00:00.000+0000",
+        "Reference": "23118332R",
+        "BookingDate": "2013-10-13T00:00:00.000+0000",
+        "ArrivalDate": "2013-10-14T00:00:00.000+0000",
         "NoOfRooms": 1,
         "Cancelled": false,
         "TotalAmount": {
             "CurrencyIso": "GBP",
-            "Amount": 75
+            "Amount": 187.2
         },
         "PriceBreakdown": { 
             "TaxPercentage": 10,
@@ -595,28 +598,30 @@ GET /BookingList/v2/?Page=1&PageSize=10
                 "Tax": 10.00,
                 "ServiceCharge ": 5.00,
                 "Total": 115.00,
-                "Currency": "USD"
+                "Currency": "USD",
+                "ComValue": 39.69,
+                "ComPercentage": 21
             },
-            "PriceInUserCurrency": {
-                "BasePrice": 100.00,
-                "Tax": 10.00,
-                "ServiceCharge ": 5.00,
-                "Total": 115.00,
-                "Currency": "GBP"
-            }
         },
+        "Booker": {
+		"Title": "Mr",
+		"FirstName": "Jamie",
+		"Surname": "Example",
+		"Email": "example@example.com",
+		"Telephone": "0777777777",
+	},
         "Rooms": [ {
-            "Adults": 2,
+            "Adults": 1,
             "Children": 0,
             "Breakfast": false,
-            "RoomType": "Standard",
+            "RoomType": "Superior",
             "TotalPrice": {
                 "CurrencyIso": "GBP",
-                "Amount": 75
+                "Amount": 187.2
             },
-            "TotalNights": 1
+            "TotalNights": 2
         } ]
-    }
+    }]
 }
 
 
