@@ -312,7 +312,7 @@ New in V2:
 * Cancellation policy link
 * Lead guest name for each room
 
-GET /Booking/v2/{BookingId}
+GET /v2/Booking/{BookingId}
 < 200
 < Content-Type: application/json 
 {
@@ -563,7 +563,7 @@ New/Fixed in V2:
 * Fixed a bug that casued the Total Count & Pages to be returned with the wrong mappings
 
 
-GET /BookingList/v2/?Page=1&PageSize=10asc=true
+GET /v2/BookingList/?Page=1&PageSize=10asc=true
 > TLRG-UN: john-harkins@laterooms.com
 > TLRG-SID: afe0c700-0eff-11e3-b5b3-9f598a0c9d46
 < 200
@@ -738,7 +738,7 @@ _Parameters:_
 * `asc` _(Optional)_ by default this option is false
     * `true` returns bookings in ascending order
 
-GET /BookingList/v2/?Page=1&PageSize=10&Sort=asc&HotelID=1234
+GET /v2/BookingList/?Page=1&PageSize=10&Sort=asc&HotelID=1234
 > TLRG-SID: afe0c700-0eff-11e3-b5b3-9f598a0c9d46
 < 200
 < Content-Type: application/json 
@@ -897,7 +897,7 @@ _Parameters:_
 * `asc` _(Optional)_ by default this option is false
     * `true` returns bookings in ascending order
     
-GET /BookingList/v2/?Page=1&PageSize=10&ProviderID=12
+GET /v2/BookingList/?Page=1&PageSize=10&ProviderID=12
 > TLRG-SID: afe0c700-0eff-11e3-b5b3-9f598a0c9d46
 < 200
 < Content-Type: application/json 
