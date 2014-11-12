@@ -726,7 +726,7 @@ GET /BookingList/?Page=1&PageSize=10
 
 _Parameters:_
 
-* `TLRG-Hotel` must be a valid hotel ID
+* `HotelID` must be a valid hotel ID
 * `PageSize` _(Optional)_ must be an integer. 0 will return all results in a single page (capped at 1,000 results)
 * `Page` returns results for the specified page. Must be used in conjunction with PageSize 
 * `BookingDateFrom` _(Optional)_ must be valid time stamp format eg. 'YYYY-MM-DD'. Will return bookings made after this date
@@ -736,7 +736,7 @@ _Parameters:_
 * `asc` _(Optional)_ by default this option is false
     * `true` returns bookings in ascending order
 
-GET /BookingList/v2/?Page=1&PageSize=10&Sort=asc&TLRG-HotelID=1234
+GET /BookingList/v2/?Page=1&PageSize=10&Sort=asc&HotelID=1234
 > TLRG-SID: afe0c700-0eff-11e3-b5b3-9f598a0c9d46
 < 200
 < Content-Type: application/json 
@@ -895,7 +895,7 @@ _Parameters:_
 * `asc` _(Optional)_ by default this option is false
     * `true` returns bookings in ascending order
     
-GET /BookingList/v2/?Page=1&PageSize=10&TLRG-ProviderID=12
+GET /BookingList/v2/?Page=1&PageSize=10&ProviderID=12
 > TLRG-SID: afe0c700-0eff-11e3-b5b3-9f598a0c9d46
 < 200
 < Content-Type: application/json 
