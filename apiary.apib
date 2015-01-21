@@ -11,7 +11,7 @@ Retrieve an enquiry by identifier
 GET /Enquiry/{EnquiryId}
 < 200
 < Content-Type: application/json
-{"Id":150956396,"LCode":"L150956396","Guid":"0fd691d1-77c2-49a4-9a24-d261d0172753","Created":"2013-02-15T02:38:19Z","TotalCostToStayInUserCurrency":{"CurrencyIso":"MYR","Amount":407.00},"TotalCostToStayInHotelCurrency":{"CurrencyIso":"MYR","Amount":407.00},"NoOfRooms":1,"Rooms":[{"Id":172044548,"Occupancy":{"Adults":2,"Children":0},"StayDetails":{"ArrivalDate":"2013-02-17T00:00:00.000+0000","Nights":1},"BreakfastIncluded":true,"DinnerIncluded":false,"CostToStayInUsersCurrency":407.00,"CostToStayInHotelsCurrency":407.00, "RateCode":"Default", "RoomCode":null}],"Nights":1,"ArrivalDate":"2013-02-17T00:00:00","ResponseTime":122.0122,"FormattedResponseTime":"122.0122ms","BookableOnline":true}
+{"Id":150956396,"LCode":"L150956396","Guid":"0fd691d1-77c2-49a4-9a24-d261d0172753","Created":"2013-02-15T02:38:19Z","TotalCostToStayInUserCurrency":{"CurrencyIso":"MYR","Amount":407.00},"TotalCostToStayInHotelCurrency":{"CurrencyIso":"MYR","Amount":407.00},"NoOfRooms":1,"Rooms":[{"Id":172044548,"Occupancy":{"Adults":2,"Children":0},"StayDetails":{"ArrivalDate":"2013-02-17T00:00:00.000+0000","Nights":1},"BreakfastIncluded":true,"DinnerIncluded":false,"CostToStayInUsersCurrency":407.00,"CostToStayInHotelsCurrency":407.00, "RateCode":"Default", "RoomCode":null}],"Nights":1,"ArrivalDate":"2013-02-17T00:00:00","ResponseTime":122.0122,"FormattedResponseTime":"122.0122ms","BookableOnline":true,"HotelId":123}
 
 Get enquiry with incorrect `{EnquiryId}`
 GET /Enquiry/{EnquiryId}
@@ -24,6 +24,13 @@ GET /Enquiry/{EnquiryId}
         "message": "Enquiry ID not found."
     }
 }
+
+Retrieve an enquiry by identifier
+* `{EnquiryId}` is a valid enquiry identifier
+GET /Enquiry?guid={EnquiryGuid}
+< 200
+< Content-Type: application/json
+{"Id":150956396,"LCode":"L150956396","Guid":"0fd691d1-77c2-49a4-9a24-d261d0172753","Created":"2013-02-15T02:38:19Z","TotalCostToStayInUserCurrency":{"CurrencyIso":"MYR","Amount":407.00},"TotalCostToStayInHotelCurrency":{"CurrencyIso":"MYR","Amount":407.00},"NoOfRooms":1,"Rooms":[{"Id":172044548,"Occupancy":{"Adults":2,"Children":0},"StayDetails":{"ArrivalDate":"2013-02-17T00:00:00.000+0000","Nights":1},"BreakfastIncluded":true,"DinnerIncluded":false,"CostToStayInUsersCurrency":407.00,"CostToStayInHotelsCurrency":407.00, "RateCode":"Default", "RoomCode":null}],"Nights":1,"ArrivalDate":"2013-02-17T00:00:00","ResponseTime":122.0122,"FormattedResponseTime":"122.0122ms","BookableOnline":true,"HotelId":123}
 
 --
 Create Enquiry
