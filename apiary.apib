@@ -262,10 +262,15 @@ GET /Booking/{BookingId}
 < Content-Type: application/json 
 {
     "Reference": "243537R",
+    "HotelId": 1234,
     "HotelName": "Kildonan Lodge Hotel",
     "HotelAddress": "27 Address Place",
     "HotelCity": "Edinburgh",
     "HotelPostcode": "EH16 5PE",
+    "GeoPoint": {
+                "Lat": 53.25284,
+                "Lon": -1.9204
+            },
     "ArrivalDate": "2014-02-07T00:00:00.000+0000",
     "NoOfRooms": 2,
     "Cancelled": false,
