@@ -340,12 +340,13 @@ GET /Booking/{BookingId}
 
 --
 Get Booking List 
+###DEPRECIATED URL IS /BookingList/?Page=1&PageSize=10
 --
 
 Get list of bookings with correct user id
 
 
-GET /BookingList/?Page=1&PageSize=10
+GET /Bookings/?Page=1&PageSize=10
 > TLRG-UN: john-harkins@laterooms.com
 > TLRG-SID: afe0c700-0eff-11e3-b5b3-9f598a0c9d46
 < 200
@@ -509,7 +510,7 @@ GET /BookingList/?Page=1&PageSize=10
 
 
 Get list of bookings for a user that has no bookings
-GET /BookingList/?Page=1&PageSize=10
+GET /Bookings/?Page=1&PageSize=10
 > TLRG-SID: afe0c700-0eff-11e3-b5b3-9f598a0c9d46
 < 200
 < Content-Type: application/json 
@@ -758,4 +759,28 @@ GET /CreditCard/GetCards/151278?AdvancePurchase=true
                     {"Id":7, "Name":"Visa Electron", "cvcDigits":3, "startDate":false, "issueNumber":false},
                     {"Id":10, "Name":"Visa Debit", "cvcDigits":3, "startDate":false, "issueNumber":false}
                   ]
+}
+
+--
+Cancel a booking
+--
+
+Cancel a booking
+
+* `Id` must be a valid booking id
+* `Reason` the cancellation reason;
+* `ChargeAccepted`
+    * If true and a cancellation charge applys will cancel the booking. 
+    * If false and a cancellation charge applys will cause an error to be returned.
+
+POST /booking/{id}/cancel
+> Content-Type: application/json
+{
+  "Reason": 2,
+  "ChargeAccepted": "false"
+}
+< 200
+< Content-Type: application/json
+{
+    "success" : true
 }
