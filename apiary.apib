@@ -14,7 +14,54 @@ Added `HotelId` to response body (21/01/2014)
 GET /Enquiry/{EnquiryId}
 < 200
 < Content-Type: application/json
-{"Id":150956396,"LCode":"L150956396","Guid":"0fd691d1-77c2-49a4-9a24-d261d0172753","Created":"2013-02-15T02:38:19Z","TotalCostToStayInUserCurrency":{"CurrencyIso":"MYR","Amount":407.00},"TotalCostToStayInHotelCurrency":{"CurrencyIso":"MYR","Amount":407.00},"NoOfRooms":1,"Rooms":[{"Id":172044548,"Occupancy":{"Adults":2,"Children":0},"StayDetails":{"ArrivalDate":"2013-02-17T00:00:00.000+0000","Nights":1},"BreakfastIncluded":true,"DinnerIncluded":false,"CostToStayInUsersCurrency":407.00,"CostToStayInHotelsCurrency":407.00, "RateCode":"Default", "RoomCode":null}],"Nights":1,"ArrivalDate":"2013-02-17T00:00:00","ResponseTime":122.0122,"FormattedResponseTime":"122.0122ms","BookableOnline":true,"HotelId":123}
+{
+   "Id":150956396,
+   "LCode":"L150956396",
+   "Guid":"0fd691d1-77c2-49a4-9a24-d261d0172753",
+   "Created":"2013-02-15T02:38:19Z",
+   "TotalCostToStayInUserCurrency":{
+      "CurrencyIso":"MYR",
+      "Amount":407.00
+   },
+   "TotalCostToStayInHotelCurrency":{
+      "CurrencyIso":"MYR",
+      "Amount":407.00
+   },
+   "NoOfRooms":1,
+   "Rooms":[
+      {
+         "Id":172044548,
+         "Occupancy":{
+            "Adults":2,
+            "Children":0
+         },
+         "StayDetails":{
+            "ArrivalDate":"2013-02-17T00:00:00.000+0000",
+            "Nights":1
+         },
+         "BreakfastIncluded":true,
+         "DinnerIncluded":false,
+         "CostToStayInUsersCurrency":407.00,
+         "CostToStayInHotelsCurrency":407.00,
+         "RateCode":"Default",
+         "RoomCode":null,
+         "AllowBedTypeChoice":false,
+         "CancellationPolicy":{  
+            "CancellationType":"EntireBookingChargeable",
+            "PolicyDescription":"A credit/debit card is required to secure your reservation at The Palace Hotel in Manchester. There will be no cancellation charge if a booking is cancelled before 14:00 hotel local time 1 day before your date of arrival. If the booking is cancelled later, or in the case of a no-show, the entire stay will be charged.",
+            "DeadlineDaysBeforeArrival":1,
+            "DeadlineTimeOfDay":"14:00:00",
+            "CancellationDeadline":"2015-04-29T14:00:00.000+01:00"
+        }
+      }
+   ],
+   "Nights":1,
+   "ArrivalDate":"2013-02-17T00:00:00",
+   "ResponseTime":122.0122,
+   "FormattedResponseTime":"122.0122ms",
+   "BookableOnline":true,
+   "HotelId":123
+}
 
 Get enquiry with incorrect `{EnquiryId}`
 GET /Enquiry/{EnquiryId}
@@ -33,8 +80,54 @@ GET /Enquiry/{EnquiryId}
 GET /Enquiry?guid={EnquiryGuid}
 < 200
 < Content-Type: application/json
-{"Id":150956396,"LCode":"L150956396","Guid":"0fd691d1-77c2-49a4-9a24-d261d0172753","Created":"2013-02-15T02:38:19Z","TotalCostToStayInUserCurrency":{"CurrencyIso":"MYR","Amount":407.00},"TotalCostToStayInHotelCurrency":{"CurrencyIso":"MYR","Amount":407.00},"NoOfRooms":1,"Rooms":[{"Id":172044548,"Occupancy":{"Adults":2,"Children":0},"StayDetails":{"ArrivalDate":"2013-02-17T00:00:00.000+0000","Nights":1},"BreakfastIncluded":true,"DinnerIncluded":false,"CostToStayInUsersCurrency":407.00,"CostToStayInHotelsCurrency":407.00, "RateCode":"Default", "RoomCode":null}],"Nights":1,"ArrivalDate":"2013-02-17T00:00:00","ResponseTime":122.0122,"FormattedResponseTime":"122.0122ms","BookableOnline":true,"HotelId":123}
-
+{
+   "Id":150956396,
+   "LCode":"L150956396",
+   "Guid":"0fd691d1-77c2-49a4-9a24-d261d0172753",
+   "Created":"2013-02-15T02:38:19Z",
+   "TotalCostToStayInUserCurrency":{
+      "CurrencyIso":"MYR",
+      "Amount":407.00
+   },
+   "TotalCostToStayInHotelCurrency":{
+      "CurrencyIso":"MYR",
+      "Amount":407.00
+   },
+   "NoOfRooms":1,
+   "Rooms":[
+      {
+         "Id":172044548,
+         "Occupancy":{
+            "Adults":2,
+            "Children":0
+         },
+         "StayDetails":{
+            "ArrivalDate":"2013-02-17T00:00:00.000+0000",
+            "Nights":1
+         },
+         "BreakfastIncluded":true,
+         "DinnerIncluded":false,
+         "CostToStayInUsersCurrency":407.00,
+         "CostToStayInHotelsCurrency":407.00,
+         "RateCode":"Default",
+         "RoomCode":null,
+         "AllowBedTypeChoice":false,
+         "CancellationPolicy":{  
+            "CancellationType":"EntireBookingChargeable",
+            "PolicyDescription":"A credit/debit card is required to secure your reservation at The Palace Hotel in Manchester. There will be no cancellation charge if a booking is cancelled before 14:00 hotel local time 1 day before your date of arrival. If the booking is cancelled later, or in the case of a no-show, the entire stay will be charged.",
+            "DeadlineDaysBeforeArrival":1,
+            "DeadlineTimeOfDay":"14:00:00",
+            "CancellationDeadline":"2015-04-29T14:00:00.000+01:00"
+        }         
+      }
+   ],
+   "Nights":1,
+   "ArrivalDate":"2013-02-17T00:00:00",
+   "ResponseTime":122.0122,
+   "FormattedResponseTime":"122.0122ms",
+   "BookableOnline":true,
+   "HotelId":123
+}
 --
 Create Enquiry
 --
@@ -149,7 +242,13 @@ POST /Enquiry
         "RateCode":"Default",
         "RoomCode":"EXEC",
         "AllowBedTypeChoice":false,
-        "CancellationType": "FirstNightStay"
+        "CancellationPolicy":{  
+            "CancellationType":"EntireBookingChargeable",
+            "PolicyDescription":"A credit/debit card is required to secure your reservation at The Palace Hotel in Manchester. There will be no cancellation charge if a booking is cancelled before 14:00 hotel local time 1 day before your date of arrival. If the booking is cancelled later, or in the case of a no-show, the entire stay will be charged.",
+            "DeadlineDaysBeforeArrival":1,
+            "DeadlineTimeOfDay":"14:00:00",
+            "CancellationDeadline":"2015-04-29T14:00:00.000+01:00"
+        }
     },
     { 
         "Id":444822,
@@ -168,7 +267,13 @@ POST /Enquiry
         "RateCode":"235851",
         "RoomCode":"EXEC",
         "AllowBedTypeChoice":false,
-        "CancellationType": "FirstNightStay"
+        "CancellationPolicy":{  
+            "CancellationType":"EntireBookingChargeable",
+            "PolicyDescription":"A credit/debit card is required to secure your reservation at The Palace Hotel in Manchester. There will be no cancellation charge if a booking is cancelled before 14:00 hotel local time 1 day before your date of arrival. If the booking is cancelled later, or in the case of a no-show, the entire stay will be charged.",
+            "DeadlineDaysBeforeArrival":1,
+            "DeadlineTimeOfDay":"14:00:00",
+            "CancellationDeadline":"2015-04-29T14:00:00.000+01:00"
+        }
     },
     {
         "Id":449822,
@@ -187,7 +292,13 @@ POST /Enquiry
         "RateCode":"Default",
         "RoomCode":"EXEC",
         "AllowBedTypeChoice":true,
-        "CancellationType": "FirstNightStay"
+        "CancellationPolicy":{  
+            "CancellationType":"EntireBookingChargeable",
+            "PolicyDescription":"A credit/debit card is required to secure your reservation at The Palace Hotel in Manchester. There will be no cancellation charge if a booking is cancelled before 14:00 hotel local time 1 day before your date of arrival. If the booking is cancelled later, or in the case of a no-show, the entire stay will be charged.",
+            "DeadlineDaysBeforeArrival":1,
+            "DeadlineTimeOfDay":"14:00:00",
+            "CancellationDeadline":"2015-04-29T14:00:00.000+01:00"
+        }
     },
     {
         "Id":449822,
@@ -205,7 +316,13 @@ POST /Enquiry
         "RateCode":"Default",
         "RoomCode":"EXEC",
         "AllowBedTypeChoice":true,
-        "CancellationType": "FirstNightStay"
+        "CancellationPolicy":{  
+            "CancellationType":"EntireBookingChargeable",
+            "PolicyDescription":"A credit/debit card is required to secure your reservation at The Palace Hotel in Manchester. There will be no cancellation charge if a booking is cancelled before 14:00 hotel local time 1 day before your date of arrival. If the booking is cancelled later, or in the case of a no-show, the entire stay will be charged.",
+            "DeadlineDaysBeforeArrival":1,
+            "DeadlineTimeOfDay":"14:00:00",
+            "CancellationDeadline":"2015-04-29T14:00:00.000+01:00"
+        }
     },
     {
         "Id":449823,
@@ -223,7 +340,13 @@ POST /Enquiry
         "RateCode":"Default",
         "RoomCode":"EXEC",
         "AllowBedTypeChoice":true,
-        "CancellationType": "FirstNightStay"
+        "CancellationPolicy":{  
+            "CancellationType":"EntireBookingChargeable",
+            "PolicyDescription":"A credit/debit card is required to secure your reservation at The Palace Hotel in Manchester. There will be no cancellation charge if a booking is cancelled before 14:00 hotel local time 1 day before your date of arrival. If the booking is cancelled later, or in the case of a no-show, the entire stay will be charged.",
+            "DeadlineDaysBeforeArrival":1,
+            "DeadlineTimeOfDay":"14:00:00",
+            "CancellationDeadline":"2015-04-29T14:00:00.000+01:00"
+        }
     },
     {
         "Id":443652,
@@ -241,8 +364,14 @@ POST /Enquiry
         "RateCode":"Default",
         "RoomCode":"EXEC",
         "AllowBedTypeChoice":false,
-            "CancellationType": "FirstNightStay"
-        } ],
+        "CancellationPolicy":{  
+            "CancellationType":"EntireBookingChargeable",
+            "PolicyDescription":"A credit/debit card is required to secure your reservation at The Palace Hotel in Manchester. There will be no cancellation charge if a booking is cancelled before 14:00 hotel local time 1 day before your date of arrival. If the booking is cancelled later, or in the case of a no-show, the entire stay will be charged.",
+            "DeadlineDaysBeforeArrival":1,
+            "DeadlineTimeOfDay":"14:00:00",
+            "CancellationDeadline":"2015-04-29T14:00:00.000+01:00"
+        }
+    } ],
     "Nights":2,
     "ArrivalDate":"2013-10-26T00:00:00",
     "ResponseTime":186.01860000000002,
