@@ -686,6 +686,7 @@ Make booking a successful booking for 1 room
 * `{EndYear}` must be in format `YYYY`
 * `{TokenisedCardNumber}` & `{TokenisedSecurityCode}` must be valid IPG tokens
 * `{SaveCard}` will store the card for use with future bookings
+* `{ExpectedTotalCostInHotelCurrency}` is the expected cost of the booking including all optional additions such as breakfasts
 
 POST /Booking
 > Content-Type: application/json
@@ -697,6 +698,7 @@ POST /Booking
 	"ArrivalDate": "2013-09-26",
 	"ChannelId": 1,
 	"EnquiryGuid": "9f4ad095-8441-45c2-acde-01c405ff5b0f",
+	"ExpectedTotalCostInHotelCurrency": 200.55,
 	"Booker": {
 		"Title": "Mr",
 		"FirstName": "Dave",
