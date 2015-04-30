@@ -453,6 +453,9 @@ GET /Booking/{BookingId}
     } ]
 }
 
+Retrieve a single booking by its {Guid}
+GET /Booking/{Guid}
+< 200
 
 Get booking with an unknown `{BookingId}`
 GET /Booking/{BookingId}
@@ -878,8 +881,10 @@ GET /CreditCard/TokenisationSession/
 Get Cards 
 --
 
-Get Accepted Cards by Hotel where advance payment is true
-GET /CreditCard/GetCards/151278?AdvancePurchase=true
+Get Accepted Cards by Hotel with id {hotelid}
+* AdvancePurchase
+    * If true, returns cards accepted by hotel for advance payments
+GET /CreditCard/GetCards/{hotelid}?AdvancePurchase=true
 < 200
 < Content-Type: application/json 
 {
@@ -901,8 +906,8 @@ Cancel a booking
 * `Id` must be a valid booking id
 * `Reason` the cancellation reason;
 * `ChargeAccepted`
-    * If true and a cancellation charge applys will cancel the booking. 
-    * If false and a cancellation charge applys will cause an error to be returned.
+    * If true and a cancellation charge applies, will cancel the booking. 
+    * If false and a cancellation charge applies, will cause an error to be returned.
 
 POST /booking/{id}/cancel
 > TLRG-SID: afe0c700-0eff-11e3-b5b3-9f598a0c9d46
